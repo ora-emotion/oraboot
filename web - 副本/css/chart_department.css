@@ -1,0 +1,23 @@
+/**
+ * @file name    : chart_department.css
+ * @created time : 2018/1/23 11:32
+ * @author       : smpower
+ * @mail         : bzsjxhywrf@outlook.com
+ * @github       : https://github.com/smpower/
+*/
+
+
+.chart-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chart {
+  width: 1500px;
+  height: 700px;
+  margin-top: 60px;
+  margin-left: 240px;
+  z-index: 10;
+}
