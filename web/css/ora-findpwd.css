@@ -1,0 +1,154 @@
+/*
+ * ora-findpwd.css
+ * Findpwd namespace styles
+ * 找回密码样式表
+*/
+
+span {
+  font-size: 16px;
+  color: #313131;
+  font-family: "Microsoft YaHei";
+  display: inline-block;
+  width: 85px;
+  height: 42px;
+  line-height: 42px;
+}
+
+input,
+select {
+  width: 378px;
+  height: 42px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  padding: 0 10px;
+}
+select {
+  width: 400px;
+  height: 44px;
+  color: #919191;
+  padding-left: 6px;
+}
+input:focus,
+select:focus {
+  outline: none;
+}
+
+#ora-findpwd {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("../images/findpwd/bg.png") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ora-findpwd-wrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 1088px;
+  height: 489px;
+  background: transparent;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.ora-findpwd-s01>div,
+.ora-findpwd-s02>div {
+  width: 500px;
+  padding: 14px 0;
+}
+.ora-findpwd-s01,
+.ora-findpwd-s02 {
+  width: 1088px;
+  padding-top: 37px;
+  padding-bottom: 45px;
+  border-radius: 15px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.ora-findpwd-s02 {
+  display: none;
+}
+.ora-findpwd-s02.active {
+  display: flex;
+  top: -44px;
+  left: 0;
+  height: 401px;
+  opacity: 0;
+}
+  /* Start : 背景图 */
+  div.ora-findpwd-s01-step,
+  div.ora-findpwd-s02-step {
+    width: 334px;
+    height: 75px;
+    margin-left: 74px;
+    background: url("../images/findpwd/step01.png") no-repeat center center;
+    background-size: 100%;
+  }
+  div.ora-findpwd-s02-step {
+    background: url("../images/findpwd/step02.png") no-repeat center center;
+    background-size: 100%;
+  }
+  /* End : 背景图 */
+
+  /* Start : 用户名 */
+  div.ora-findpwd-s01-username {
+    padding-top: 30px;
+  }
+  /* End : 用户名 */
+
+  /* Start : 提交按钮 */
+  .ora-findpwd-s01-submit button,
+  .ora-findpwd-s02-submit button {
+    width: 400px;
+    height: 44px;
+    border: none;
+    border-radius: 6px;
+    background: #35b558;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 5px;
+    margin-left: 81px;
+    transition: all .3s;
+  }
+  .ora-findpwd-s01-submit button:hover,
+  .ora-findpwd-s02-submit button:hover {
+    background: #35a558;
+  }
+  .ora-findpwd-s02-submit button {
+    margin-left: 91px;
+  }
+  /* End : 提交按钮 */
+
+  /* Start : 提示信息 */
+  div.ora-findpwd-s01-tip {
+    width: 400px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0;
+    position: absolute;
+    top: 140px;
+    left: 384px;
+    display: none;
+  }
+  .ora-findpwd-s01-tip.active {
+    display: block;
+  }
+  div.ora-findpwd-s01-tip span {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #fd3232;
+  }
+  /* End : 提示信息 */
