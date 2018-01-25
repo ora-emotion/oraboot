@@ -179,14 +179,14 @@
       </div>
       <!-- End : 业绩管理 -->
 
-      <!-- Start : 业绩查看 -->
+      <!-- Start : 业绩图表 -->
       <div class="ora-nav-chart ora-nav-item">
         <div class="ora-nav-chart-title ora-nav-title">
           <span class="ora-nav-chart-title-avator"></span>
-          <span class="ora-nav-chart-title-text">业绩查看</span>
+          <span class="ora-nav-chart-title-text">业绩图表</span>
         </div>
       </div>
-      <!-- End : 业绩查看 -->
+      <!-- End : 业绩图表 -->
     </nav>
     <!-- End: nav -->
 
