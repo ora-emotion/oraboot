@@ -67,12 +67,13 @@
     <!-- End : 个人资料按钮 -->
 
     <!-- Start : 个人资料菜单 -->
-    <div class="ora-header-menu">
-      <span>个人资料</span>
-      <span>个人业绩</span>
-      <a href="${pageContext.request.contextPath}/logout">退出</a>
-    </div>
-    <!-- End : 个人资料菜单 -->
+      <div class="ora-header-menu">
+        <span>个人资料</span>
+        <span>个人业绩</span>
+        <span class="menu-chart">个人业绩图表</span>
+        <a href="${pageContext.request.contextPath}/logout">退出</a>
+      </div>
+      <!-- End : 个人资料菜单 -->
   </header>
   <!-- End : header -->
 
@@ -119,6 +120,15 @@
       </div>
     </div>
     <!-- End : 业绩管理 -->
+
+    <!-- Start : 业绩图表 -->
+    <div class="ora-nav-chart ora-nav-item">
+      <div class="ora-nav-chart-title ora-nav-title" style="background: #fca12f;" title="业绩图表">
+        <span class="ora-nav-chart-title-avator"></span>
+        <span class="ora-nav-chart-title-text">业绩图表</span>
+      </div>
+    </div>
+    <!-- End : 业绩图表 -->
   </nav>
   <!-- End: nav -->
 

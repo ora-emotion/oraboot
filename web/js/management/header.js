@@ -1,5 +1,8 @@
 /*
- * header.js
+ * @file name : header.js
+ * @author    : smpower
+ * @email     : bzsjxhywrf@outlook.com
+ * @github    : https://github.com/smpower/
  * header 模块
 */
 
@@ -15,7 +18,7 @@ var header = (function () {
   var
     configMap = {
       menu_extend_width    : 100,
-      menu_extend_height   : 93,
+      menu_extend_height   : 123,
       menu_retract_width   : 0,
       menu_retract_height  : 0,
       menu_extend_time     : 300,
@@ -53,12 +56,12 @@ var header = (function () {
 
     jqueryMap = {
       $header      : $header,
-      $personinfo  : $personinfo,
       $info        : $header.find('.ora-header-info'),
       $menu        : $header.find('.ora-header-menu'),
       $personinfo  : $header.find('.ora-header-menu span:first-child'),
       $performance : $header.find('.ora-header-menu span:nth-child(2)'),
-      $triangle    : $header.find('.ora-header-info-triangle'),
+      $chart       : $header.find('.ora-header-menu .menu-chart'),
+      $triangle    : $header.find('.ora-header-info-triangle')
     };
   };
 
@@ -92,14 +95,15 @@ var header = (function () {
           if (callback) { callback({}); }
         }
       );
+
       // 按钮状态
       jqueryMap.$triangle.css(
         {
           'transform' : 'rotate(180deg)',
-          '-ms-transform' : 'rotate(180deg)',  // Internet Explorer
-          '-moz-transform' : 'rotate(180deg)',  // Firefox
+          '-ms-transform' : 'rotate(180deg)',      // Internet Explorer
+          '-moz-transform' : 'rotate(180deg)',     // Firefox
           '-webkit-transform' : 'rotate(180deg)',  // Safari 和 Chrome
-          '-o-transform' : 'rotate(180deg)'  // Opera
+          '-o-transform' : 'rotate(180deg)'        // Opera
         },
         configMap.triangle_toggle_time
       );
@@ -119,6 +123,7 @@ var header = (function () {
           if (callback) { callback({}); }
         }
       );
+
       // 按钮状态
       jqueryMap.$triangle.css(
         {
@@ -182,13 +187,13 @@ var header = (function () {
         // 模态层
         $personinfo.find('.ora-personinfo-modal').animate(
           { opacity : configMap.modal.hide_opacity },
-            configMap.modal.hide_time,
-              function () {
-                $personinfo.find('.ora-personinfo-modal').css({display : configMap.modal.hide});
-                // 模态框根容器
-                $personinfo.css({ display : configMap.modal.hide });
-                if (callback) { callback(); }
-              }
+          configMap.modal.hide_time,
+          function () {
+          $personinfo.find('.ora-personinfo-modal').css({display : configMap.modal.hide});
+            // 模态框根容器
+            $personinfo.css({ display : configMap.modal.hide });
+            if (callback) { callback(); }
+          }
         );
       }
     );
@@ -202,7 +207,6 @@ var header = (function () {
   //
   getData = function (arg_map) {
     var uid = stateMap.uid;
-    console.log('向后台发送的 uid : ' + uid);
     $.ajax({
       type         : 'post',
       url          : 'aboutme',
@@ -621,6 +625,11 @@ var header = (function () {
     // 个人业绩按钮
     jqueryMap.$performance.unbind('click').click(function () {
       window.location.href = 'toPerformance';
+    });
+
+    // 点击"个人业绩图表"按钮
+    jqueryMap.$chart.unbind('click').click(function () {
+      console.log('打开"个人业绩图表"~');
     });
   };
 

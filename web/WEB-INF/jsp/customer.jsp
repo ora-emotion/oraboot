@@ -148,6 +148,7 @@
       <div class="ora-header-menu">
         <span>个人资料</span>
         <span>个人业绩</span>
+        <span class="menu-chart">个人业绩图表</span>
         <a href="${pageContext.request.contextPath}/logout">退出</a>
       </div>
       <!-- End : 个人资料菜单 -->
@@ -173,7 +174,7 @@
 
       <!-- Start : 用户管理 -->
       <div class="ora-nav-user ora-nav-item">
-        <div class="ora-nav-user-title ora-nav-title" style="background: #fca12f" title="用户管理">
+        <div class="ora-nav-user-title ora-nav-title" style="background: #fca12f;" title="用户管理">
           <span class="ora-nav-user-title-avator"></span>
           <span class="ora-nav-user-title-text">用户管理</span>
         </div>
@@ -198,14 +199,14 @@
       </div>
       <!-- End : 业绩管理 -->
 
-      <!-- Start : 业绩查看 -->
+      <!-- Start : 业绩图表 -->
       <div class="ora-nav-chart ora-nav-item">
         <div class="ora-nav-chart-title ora-nav-title">
           <span class="ora-nav-chart-title-avator"></span>
-          <span class="ora-nav-chart-title-text">业绩查看</span>
+          <span class="ora-nav-chart-title-text">业绩图表</span>
         </div>
       </div>
-      <!-- End : 业绩查看 -->
+      <!-- End : 业绩图表 -->
     </nav>
     <!-- End: nav -->
 
