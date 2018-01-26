@@ -19,8 +19,9 @@ public class LoginInterceptor implements HandlerInterceptor {
 				|| url.indexOf("/toRegister") >= 0 || url.indexOf("/toLogin") >= 0 || url.indexOf("/toFindp") >= 0
 				|| url.indexOf("/findp") >= 0 || url.indexOf("/setp") >= 0 || url.indexOf("/toPerformance") >= 0
 				|| url.indexOf("/logout") >= 0 || url.indexOf("/toGongzi") >= 0 || url.indexOf("/user/checkUname") >= 0
-				|| url.indexOf("/toTestUser") >= 0 || url.indexOf("/user/checkLoginname") >= 0||url.indexOf("/toTest")>=0
-				|| url.indexOf("/fileAjax")>=0 ||url.indexOf("/getHistory")>=0 || url.indexOf("/getDepartHistory")>=0 || url.indexOf("/toDC") >= 0) {
+				|| url.indexOf("/toTestUser") >= 0 || url.indexOf("/user/checkLoginname") >= 0||url.indexOf("/toTest")>=0 
+				|| url.indexOf("/findHistory")>=0 || url.indexOf("/findDepartmentHistory")>=0 ||url.indexOf("/toHistory")>=0
+				||url.indexOf("/selectDayPerformance")>=0) {
 			return true;
 		}
 		HttpSession session = req.getSession();
@@ -55,7 +56,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 			if (user.getPosition() > 1 && user.getService() == 0) {
 				if (url.indexOf("/toUser") >= 0 || url.indexOf("/user/list") >= 0
 						|| url.indexOf("/user/root/selectSupervisor") >= 0 || url.indexOf("/user/selectUserDepart") >= 0
-						|| url.indexOf("/toPmself") >= 0 || url.indexOf("/Pmself") >= 0 || url.indexOf("/toPm") >= 0) {
+						|| url.indexOf("/toPmself") >= 0 || url.indexOf("/Pmself") >= 0 || url.indexOf("/toPm") >= 0 ) {
 
 					return true;
 				}
