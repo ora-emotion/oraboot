@@ -629,7 +629,7 @@ var header = (function () {
 
     // 点击"个人业绩图表"按钮
     jqueryMap.$chart.unbind('click').click(function () {
-      console.log('打开"个人业绩图表"~');
+      window.location.href = 'toDCSelf';
     });
   };
 
