@@ -33,8 +33,10 @@ public class PerformanceCopyController {
 
 		//当前时间的上个月
 		Calendar c = Calendar.getInstance();
+		c.setTime(new Date());
 		c.add(Calendar.MONTH, -1);
-		SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM");
+		SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(c.getTime());
 		String prev = sdf.format(c.getTime());
 
 		//定义开始时间
@@ -111,7 +113,7 @@ public class PerformanceCopyController {
 	@ResponseBody
 	public List<List> selectDayPerformance(HttpSession session) throws ParseException {
 		User user = (User)session.getAttribute("USER_SESSION");
-		Integer user_id = user.getUid();
+		Integer user_id = 1;
 		List<List> mymonths = new ArrayList<List>();
 		String[] dates = getDate();
 		for(String date : dates){
