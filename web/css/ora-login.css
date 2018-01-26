@@ -1,0 +1,152 @@
+/*
+ * ora-login.css
+ * Login namespace styles
+ * 用户登录样式表
+*/
+
+/* Start : 根容器样式 */
+#ora-login {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("../images/login/bg.jpg") no-repeat center center;
+  background-size: cover;
+}
+/* End : 根容器样式 */
+
+/* Start : 登陆框样式 */
+.ora-login-main {
+  position: absolute;
+  top: 150px;
+  right: 20%;
+  width: 390px;
+  height: 410px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 5px 15px 2px rgba(0, 0, 0, .2);
+}
+/* End : 登陆框样式 */
+
+/* Start : 登陆框标题 */
+.ora-login-main-title {
+  width: 100%;
+  height: 60px;
+  background: #fca12f;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.ora-login-main-title span {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 5px;
+}
+/* End : 登陆框标题 */
+
+/* Start : 登陆框输入框及提交按钮 */
+.ora-login-main-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 42px;
+}
+.ora-login-main-input input {
+  width: 248px;
+  height: 42px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  padding-left: 40px;
+  padding-right: 10px;
+  margin: 17px 0;
+  transition: all .3s;
+}
+.ora-login-main-input input:focus {
+  outline: none;
+  border: 1px solid #fca12f;
+  box-shadow: 0 2px 2px #ffc479;
+  border-radius: 6px;
+}
+.ora-login-main-input-submit {
+  width: 300px;
+  height: 45px;
+  margin-top: 30px;
+  border-radius: 10px;
+  border: none;
+  background: #fca12f;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+.ora-login-main-input-submit:focus {
+  outline: none;
+}
+.ora-login-main-input-submit:hover {
+  background: #e2902a;
+}
+/* End : 登陆框输入框及提交按钮 */
+
+/* Start : 图标 */
+.ora-login-main-icon span {
+  position: absolute;
+  left: 56px;
+  display: inline-block;
+  width: 22px;
+  height: 24px;
+}
+.ora-login-main-icon-username {
+  background: url("../images/login/username.png") no-repeat center center;
+  background-size: 100%;
+  top: 130px;
+}
+.ora-login-main-icon-password {
+  background: url("../images/login/password.png") no-repeat center center;
+  background-size: 100%;
+  top: 208px;
+}
+/* End : 图标 */
+
+/* Start : 注册成功
+ * 注册之前 - display: none;
+ * 注册成功 - display: flex; justify-content: center;
+*/
+.ora-login-main-tip-success {
+  width: 100%;
+  position: absolute;
+  top: -38px;
+  left: 0;
+}
+.ora-login-main-tip-success p {
+  font-size: 20px;
+  color: #f53333;
+  opacity: 1;
+}
+/* End : 注册成功 */
+
+/* Start : 立即注册 找回密码 */
+.ora-login-main-tip-extra {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 10px;
+  font-size: 14px;
+}
+.ora-login-main-tip-extra span {
+  color: #919191;
+}
+.ora-login-main-tip-extra a {
+  color: #3a9cef;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* End : 立即注册 找回密码 */

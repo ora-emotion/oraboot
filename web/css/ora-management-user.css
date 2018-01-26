@@ -1,0 +1,606 @@
+/**
+ * user.css
+ * 导师管理样式表
+*/
+
+body {
+  cursor: default;
+}
+
+table tbody tr .th,
+table tbody tr .td {
+  width: 120px;
+}
+table tbody tr span,
+table tbody tr input {
+  font-family: "Microsoft YaHei";
+}
+table tbody tr input {
+  width: 70px;
+  height: 24px;
+  line-height: 24px;
+  border: 1px solid #d1d1d1;
+  border-radius: 3px;
+  color: #919191;
+  padding: 0 10px;
+  margin: 0 10px;
+  font-size: 14px;
+}
+table tbody tr input:focus {
+  border-radius: 3px;
+}
+table tbody tr td .name-text {
+  cursor: pointer;
+  text-decoration: underline;
+}
+table tbody tr td .birthday-input {
+  width: 85px;
+}
+table tbody tr td .wechat-input {
+  width: 120px;
+}
+table tbody tr td .phone-input {
+  width: 90px;
+}
+table tbody tr td .edit-before {
+  width: 85px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+table tbody tr td .edit-before-update {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: url("../images/management/icon_eidt_default.png") no-repeat center center;
+  background-size: 100%;
+  vertical-align: middle;
+}
+table tbody tr td .edit-before-update:hover {
+  cursor: pointer;
+  background: url("../images/management/icon_eidt_mouseleave.png") no-repeat center center;
+}
+table tbody tr td .edit-before-delete {
+  display: inline-block;
+  width: 20px;
+  height: 22px;
+  background: url("../images/management/icon_delete_default.png") no-repeat center center;
+  background-size: 100%;
+}
+table tbody tr td .edit-before-delete:hover {
+  cursor: pointer;
+  background: url("../images/management/icon_delete_ mouseleave.png") no-repeat center center;
+}
+table tbody tr td .edit-after-confirm {
+  padding: 5px 10px;
+  border-radius: 3px;
+  background: #fd3232;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Start : 总监信息 */
+.ora-user-mentor-zj {
+  width: 1520px;
+  margin-left: 46px;
+}
+.ora-user-mentor-zj-title {
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  color: #313131;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+.ora-user-mentor-zj table {
+  width: 100%;
+}
+.ora-user-mentor-zj table thead tr,
+.ora-user-mentor-zj table tbody tr {
+  height: 50px;
+  line-height: 50px;
+}
+.ora-user-mentor-zj thead tr {
+  background: #91cc67;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 3px;
+}
+.ora-user-mentor-zj table thead tr th:first-child {
+  border-top-left-radius: 3px;
+}
+.ora-user-mentor-zj table thead tr th:last-child {
+  border-top-right-radius: 3px;
+}
+.ora-user-mentor-zj tbody tr {
+  background: #fff;
+  font-size: 14px;
+  color: #313131;
+}
+.ora-user-mentor-zj tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 3px;
+}
+.ora-user-mentor-zj tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 3px;
+  width: 80px;
+}
+.ora-user-mentor-zj tbody tr td.edit {
+  width: 100px;
+}
+.ora-user-mentor-zj tbody tr td .edit {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  background: url("../images/management/icon_eidt_default.png") no-repeat center center;
+  background-size: 100%;
+}
+.ora-user-mentor-zj tbody tr td .edit:hover {
+  background: url("../images/management/icon_eidt_mouseleave.png") no-repeat center center;
+  background-size: 100%;
+  cursor: pointer;
+}
+.ora-user-mentor-zj tbody tr td .edit-text {
+  padding: 4px 10px;
+  border-radius: 3px;
+  background: #fd3232;
+  color: #fff;
+}
+/* End : 总监信息 */
+
+/* Start : 部门信息 */
+.ora-user-mentor-department {
+  width: 1520px;
+  margin-left: 46px;
+}
+.ora-user-mentor-department-title {
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  color: #313131;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-top: 20px;
+}
+.ora-user-mentor-department table {
+  width: 100%;
+}
+.ora-user-mentor-department table thead tr {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+  line-height: 50px;
+  background: #91cc67;
+  color: #fff;
+}
+.ora-user-mentor-department table thead tr th {
+  padding: 0 20px;
+  transition: all .3s;
+  letter-spacing: 3px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.ora-user-mentor-department table thead tr {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.ora-user-mentor-department table thead tr th:first-child {
+  border-top-left-radius: 3px;
+}
+.ora-user-mentor-department table thead tr th:hover {
+  background: #fff;
+  color: #91cc67;
+}
+.ora-user-mentor-department table thead tr th.active {
+  background: #fff;
+  color: #91cc67;
+}
+.ora-user-mentor-department table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 3px;
+}
+.ora-user-mentor-department table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 3px;
+}
+.ora-user-mentor-department table tbody tr {
+  height: 50px;
+  line-height: 50px;
+  background: #fff;
+}
+.ora-user-mentor-department table tbody tr td {
+  font-size: 14px;
+  color: #313131;
+}
+.ora-user-mentor-department table tbody tr:first-child td {
+  font-size: 16px;
+}
+/* End : 部门信息 */
+
+/* Start : 员工列表分页器 */
+.ora-user-mentor-comployee table {
+  width: 1520px;
+}
+.ora-user-mentor-comployee table thead tr {
+  color: #fff;
+  height: 50px;
+  line-height: 50px;
+  background: #f08484;
+  border-top-left-radius: 3px;
+}
+.ora-user-mentor-comployee table thead tr th {
+  font-weight: normal;
+  font-size: 16px;
+}
+.ora-user-mentor-comployee table thead tr th:first-child {
+  border-top-left-radius: 3px;
+}
+.ora-user-mentor-comployee table thead tr th:last-child {
+  border-top-right-radius: 3px;
+}
+.ora-user-mentor-comployee table tbody tr {
+  background: #fff;
+  height: 50px;
+  line-height: 50px;
+}
+.ora-user-mentor-comployee table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 3px;
+}
+.ora-user-mentor-comployee table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 3px;
+}
+.ora-user-mentor-comployee table tbody tr td {
+  font-size: 14px;
+  font-weight: normal;
+  color: #313131;
+}
+.ora-user-mentor-comployee .pagination-control {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 19px;
+  margin-top: 20px;
+}
+.pagination-control span {
+  background: #fff;
+  border: 1px solid #fff;
+}
+.pagination-control span.not-allowed {
+  background: #d0d0d0;
+  border: 1px solid #d0d0d0;
+}
+.pagination-controllers span {
+  background: #fff;
+  border: 1px solid #fff;
+}
+/* End : 员工列表分页器 */
+
+/* Start : 总监信息模态框 */
+.majordomo-info {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  opacity: 0;
+  transition: all .3s;
+}
+.majordomo-info .modal-box {
+  background: #fff;
+  box-shadow: 0 0 100px 2px rgba(0, 0, 0, .2);
+  position: relative;
+  top: -60px;
+  left: 0;
+  z-index: 4;
+  border-radius: 3px;
+  opacity: 0;
+}
+.majordomo-info .modal-box-title {
+  background: #91cc67;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #fff;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
+.majordomo-info .modal-box-close {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: url("../images/management/icon-close.png") no-repeat center center;
+  background-size: 22px;
+  position: absolute;
+}
+.majordomo-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.majordomo-content-item {
+  height: 32px;
+  line-height: 32px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+}
+.majordomo-content-item div span {
+  font-size: 14px;
+}
+.majordomo-content-item div span:first-child {
+  display: inline-block;
+  color: #919191;
+  width: 64px;
+  padding-right: 10px;
+}
+.majordomo-content-item div span:last-child {
+  color: #313131;
+}
+.majordomo-content-item .majordomo-content-item-remark {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.majordomo-content-item .majordomo-content-item-remark span:last-child {
+  display: inline-block;
+  width: 240px;
+  height: 190px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #d0d0d0;
+  word-wrap: break-word;
+  overflow-y: scroll;
+}
+/* 自定义备注的滚动条样式 */
+.majordomo-content-item .majordomo-content-item-remark span:last-child::-webkit-scrollbar {  /* 滚动条整体样式 */
+  width: 5px;
+}
+.majordomo-content-item .majordomo-content-item-remark span:last-child::-webkit-scrollbar-thumb {  /* 滚动条里面的小方块 */
+  border-radius: 5px;
+  background: rgba(100, 100, 100, .2);
+}
+.majordomo-content-item .majordomo-content-item-remark span:last-child::-webkit-scrollbar-track {  /* 滚动条里面的轨道 */
+  background: transparent;
+}
+div.majordomo-content-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.majordomo-content-btn button {
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 6px;
+  background: #91cc67;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+}
+/* End : 总监信息模态框 */
+
+/* Start : 删除用户警告模态框 */
+.deleteuser-modal {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  opacity: 0;
+  transition: all .3s;
+}
+.deleteuser-modal .modal-box {
+  background: #fff;
+  box-shadow: 0 0 100px 2px rgba(0, 0, 0, .2);
+  position: relative;
+  top: -60px;
+  left: 0;
+  z-index: 4;
+  border-radius: 3px;
+  opacity: 0;
+}
+.deleteuser-modal .modal-box-title {
+  background: #fd3232;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #fff;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
+.deleteuser-modal .modal-box-close {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: url("../images/management/icon-close.png") no-repeat center center;
+  background-size: 22px;
+  position: absolute;
+  cursor: pointer;
+}
+.deleteuser-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 25px;
+  left: 0;
+}
+.deleteuser-content p {
+  width: 100%;
+  color: #fd3232;
+  font-weight: bold;
+  font-size: 15px;
+}
+.ora-deleteuser-content-btn {
+  width: 100%;
+  height: 32px;
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ora-deleteuser-content-btn .modal-btn-confirm,
+.ora-deleteuser-content-btn .modal-btn-cancel {
+  width: 68px;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 10px;
+  margin-right: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #91cc67;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.ora-deleteuser-content-btn .modal-btn-confirm {
+  background: #fd3232;
+}
+/* End : 删除用户警告模态框 */
+
+/* Start : 添加个更新导师信息模态框 */
+.adduser-modal.updateuser-modal {  /* 模态框根容器样式 */
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  opacity: 0;
+}
+.adduser-modal.updateuser-modal .modal-box {  /* 模态框样式 */
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 0 100px rgba(0, 0, 0, .3);
+  position: relative;
+  top: -60px;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+}
+.adduser-modal.updateuser-modal .modal-box-title {  /* 标题样式 */
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background: #f08484;
+  color: #fff;
+  font-size: 24px;
+}
+.adduser-modal.updateuser-modal .modal-box-close {  /* 模态框关闭按钮 */
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: url("../images/management/icon-close.png") no-repeat center center;
+  background-size: 22px;
+  position: absolute;
+  cursor: pointer;
+}
+.adduser-content.updateuser-content {  /* 内容区样式 */
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-right: 50px;
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.adduser-content-group.updateuser-content-group:first-child {  /* 内容区左侧样式 */
+  padding-right: 50px;
+}
+.adduser-content-group.updateuser-content-group:last-child {  /* 内容区右侧样式 */}
+.ora-adduser-content-item.ora-updateuser-content-item {
+  height: 32px;
+  line-height: 32px;
+  margin: 20px 0;
+  display: flex;
+}
+.adduser-content.updateuser-content span {
+  font-weight: normal;
+  display: inline-block;
+  width: 80px;
+  padding-right: 20px;
+  font-size: 14px;
+}
+.adduser-content.updateuser-content input {
+  width: 200px;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 10px;
+  margin-left: 10px;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+}
+.ora-adduser-content-btn.ora-updateuser-content-btn {  /* 按钮父容器样式 */
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+}
+.ora-adduser-content-item.ora-updateuser-content-item input {  /* 属性字段统一样式 */
+  color: #616161;
+  font-size: 14px;
+}
+.ora-adduser-content-remark.ora-updateuser-content-remark {  /* 备注字段样式表 */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.ora-adduser-content-remark.ora-updateuser-content-remark span {  /* 备注属性 */
+  padding-right: 34px;
+}
+.ora-adduser-content-remark.ora-updateuser-content-remark textarea {  /* 备注属性值 */
+  width: 200px;
+  height: 180px;
+  line-height: 20px;
+  color: #616161;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+  padding: 5px 10px;
+  resize: none;
+}
+.ora-adduser-content-remark.ora-updateuser-content-remark textarea::-webkit-scrollbar {  /* 备注滚动条整体样式 */
+  width: 5px;
+  height: 1px;
+}
+.ora-adduser-content-remark.ora-updateuser-content-remark textarea::-webkit-scrollbar-thumb {  /* 备注滚动条里面的小方块 */
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .3);
+}
+.ora-adduser-content-remark.ora-updateuser-content-remark textarea::-webkit-scrollbar-track {  /* 备注滚动条轨道样式 */
+  background: #fff;
+  -webkit-box-shadow: inset 0 0 5px #fff;
+}
+.ora-adduser-content-btn.ora-updateuser-content-btn button {  /* 按钮统一样式 */
+  width: 80px;
+  height: 40px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  background: #91cc67;
+  cursor: pointer;
+}
+/* End : 添加个更新导师信息模态框 */
