@@ -1,0 +1,97 @@
+/*
+ * ora.css
+ * Ora namespace styles
+ * 样式预设
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+lef {
+  padding: 0;
+  margin: 0;
+  font-family: "Microsoft YaHei";
+}
+
+body {
+  overflow: hidden;
+  /**
+   * 配合在 body 中写入 onselectstart="return false;" 可屏蔽双击选中文字
+  */
+  -moz-user-select: none;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+select,
+button,
+textarea {
+  transition: all .3s;
+}
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid #fca12f;
+  box-shadow: 0 0 10px #ffc479;
+  border-radius: 6px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+::-webkit-input-placeholder {
+  color: #919191;
+}
+::-moz-placeholder {
+  color: #919191;
+}
+::-ms-input-placeholder {
+  color: #919191;
+}
+
+/* 自定义备注的滚动条样式 */
+textarea::-webkit-scrollbar {  /* 滚动条整体样式 */
+  width: 8px;
+  height: 1px;
+}
+textarea::-webkit-scrollbar-thumb {  /* 滚动条里面的小方块 */
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  background: #535353;
+}
+textarea::-webkit-scrollbar-track {  /* 滚动条里面的轨道 */
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  background: #ededed;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ora.dao.CustomerDao">
+	<!-- 根据导师姓名或学员姓名查询学员 -->
+	<select id="findCustomerByName" parameterType="List" resultType="customer">
+		SELECT * FROM customer WHERE uname IN
+		<foreach collection="list" item="uname" index="index" open="("
+			separator="," close=")">
+			#{uname}
+		</foreach>
+		ORDER BY cnumber DESC
+	</select>
+
+	<!-- 验证学院编号是否存在 -->
+	<select id="findCnumberByCnumber" parameterType="Integer"
+		resultType="customer">
+		select * from customer where cnumber = #{cnumber}
+	</select>
+
+	<!-- 验证导师姓名是否存在 -->
+	<select id="findUserByUname" parameterType="String" resultType="user">
+		SELECT * from user where uname = #{uname}
+	</select>
+
+	<!-- 添加学员 -->
+	<insert id="addCustomer" parameterType="customer">
+		INSERT INTO
+		customer(cnumber,cname,csex,bmtime,serdata,sydata,uname,sname,state,remark,spec,department_id,scheme,moneyAndTime,secondUpdate,type,freeze,unfreeze,insertUser)
+		VALUES
+		(#{cnumber},#{cname},#{csex},#{bmtime},#{serdata},#{sydata},#{uname},#{sname},#{state},#{remark},#{spec},#{department_id},#{scheme},#{moneyAndTime},#{secondUpdate},#{type},#{freeze},#{unfreeze},#{insertUser} )
+	</insert>
+
+	<!-- 查询主管下所有导师 -->
+	<select id="findUnameBySupperior" parameterType="String"
+		resultType="String">
+		SELECT uname from user where supperior = #{uname}
+	</select>
+
+	<!-- 主管查询所有学员 -->
+	<select id="findCustomerByZhuguan" parameterType="List"
+		resultType="customer">
+		SELECT * FROM customer WHERE uname IN
+		<foreach collection="list" item="uname" index="index" open="("
+			separator="," close=")">
+			#{uname}
+		</foreach>
+		ORDER BY cnumber DESC
+	</select>
+
+	<!-- 查询所有用户 -->
+	<select id="findAllCustomer" resultType="customer">
+		SELECT * FROM customer
+		ORDER BY cnumber DESC;
+	</select>
+
+	<!-- 模糊查询导师姓名和学员姓名 -->
+	<select id="selectCustomerByCustomer" resultType="customer">
+		SELECT * from customer
+		<where>
+			<if test="uname != null and uname != ''">
+				AND uname LIKE concat('%',#{uname},'%')
+			</if>
+			<if test="cname != null and cname != ''">
+				AND cname LIKE concat('%',#{cname},'%')
+			</if>
+		</where>
+		ORDER BY cnumber DESC
+	</select>
+	<!-- 查询所有用户数 -->
+	<select id="selectCustomerCount" parameterType="List"
+		resultType="Integer">
+		SELECT count(*) FROM customer WHERE uname IN
+		<foreach collection="list" item="uname" index="index" open="("
+			separator="," close=")">
+			#{uname}
+		</foreach>
+	</select>
+	<select id="selectAllCC" resultType="Integer">
+		SELECT count(*) FROM
+		customer;
+	</select>
+
+	<!-- 分页查询 -->
+	<select id="selectCustomerLimit" parameterType="Integer"
+		resultType="customer">
+		SELECT * from customer limit #{nops},10
+	</select>
+
+	<!-- 修改用户信息 -->
+	<update id="updateCustomer" parameterType="customer">
+		update customer
+		<set>
+			<if test="cnumber != null ">
+				cnumber = #{cnumber},
+			</if>
+			<if test="cname != null">
+				cname = #{cname},
+			</if>
+			
+			<if test="csex != null and csex != ''">
+				csex = #{csex},
+			</if>
+			<if test="bmtime != null and bmtime != ''">
+				bmtime = #{bmtime},
+			</if>
+			<if test="serdata != null and serdata != ''">
+				serdata = #{serdata},
+			</if>
+
+			<if test="uname != null and uname != ''">
+				uname = #{uname},
+			</if>
+			<if test="sname != null and sname != ''">
+				sname = #{sname},
+			</if>
+			<if test="state != null and state != ''">
+				state = #{state},
+			</if>
+			<if test="remark != null and remark != ''">
+				remark = #{remark},
+			</if>
+			<if test="spec != null and spec != ''">
+				spec = #{spec},
+			</if>
+			<if test="department_id != null">
+				department_id = #{department_id},
+			</if>
+			<if test="scheme != null and scheme != ''">
+				scheme = #{scheme},
+			</if>
+			<if test="moneyAndTime != null and moneyAndTime != ''">
+				moneyAndTime = #{moneyAndTime},
+			</if>
+			<if test="secondUpdate != null and secondUpdate != ''">
+				secondUpdate = #{secondUpdate},
+			</if>
+			<if test="type != null and type != ''">
+				type = #{type},
+			</if>
+			freeze = #{freeze},
+			unfreeze = #{unfreeze},
+			<if test="sydata != null">
+				sydata = #{sydata},
+			</if>
+			<if test="sydataCopy != null">
+				sydataCopy = #{sydataCopy},
+			</if>
+			<if test="updateUser != null and updateUser != ''">
+				updateUser = #{updateUser}
+			</if>
+		</set>
+		WHERE cid = #{cid}
+	</update>
+
+	<!-- 根据职级查询员工姓名 -->
+	<select id="selectUnameByPosition" parameterType="Integer" resultType="String">
+		SELECT uname FROM user WHERE position = #{position}
+	</select>
+
+	<!-- 根据客户id查询客户修改之前的信息 -->
+	<select id="selectCustomerByCid" parameterType="Integer" resultType="Customer">
+		select * from customer where cid = #{cid}
+	</select>
+
+	<!-- 备份冻结时间 -->
+	<update id="updateFreezeCopy" parameterType="customer">
+		update customer SET freezeCopy = #{freeze} WHERE cid = #{cid}
+	</update>
+</mapper>
