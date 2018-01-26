@@ -94,18 +94,6 @@ var nav = (function () {
       switch ( $(this)[0].className.split(' ')[0] ) {
         case 'ora-nav-mentor' :                       // 加载导师管理页面
           window.location.href = 'toUser';
-          // if (href === 'toUser') {
-          //   $(this).addClass('clicked');
-          //   if ( $(this)[0].className.split(' ')[$(this)[0].className.split(' ').length - 1] === 'clicked' ) {
-          //     if (stateMap.data_map.length === 0) {
-          //       getParam(stateMap.user_map.uname);    // 发起请求
-          //       return false;
-          //     }
-          //   }
-          // } else {
-          //   window.location.href = 'toUser';
-          // }
-          // nav.mentor.dataMap(stateMap.data_map);
           break;
         case 'ora-nav-user' :                         // 加载用户管理页面
             window.location.href = 'toCustomer';

@@ -69,8 +69,6 @@ var departmentChart = (function () {
 
     myChart = echarts.init(document.getElementsByClassName('chart')[0]);
 
-    console.log(data);
-
     option = {
       tooltip: {
         trigger: 'axis',
