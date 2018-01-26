@@ -9,5 +9,5 @@ import java.util.List;
 public interface PerformanceCopyDao {
   
 	//查询个人之前月份的每日业绩
-	public List<Performance> selectDayPerformance(Integer user_id);
+	public List<Performance> selectDayPerformance(Performance performance);
 }

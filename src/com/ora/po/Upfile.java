@@ -1,5 +1,8 @@
 package com.ora.po;
 
+import java.io.File;
+import java.io.IOException;
+
 //用户文件实体类
 public class Upfile {
     private Integer fid;        //文件id
@@ -51,7 +54,6 @@ public class Upfile {
 
     public Upfile(){
 
-
     }
 
     public Upfile(Integer fid, String fname, String uname, String cust_cnumber, String update_time) {
@@ -60,5 +62,9 @@ public class Upfile {
         this.uname = uname;
         this.cust_cnumber = cust_cnumber;
         this.update_time = update_time;
+    }
+
+    public void transferTo(File file) throws IOException, IllegalStateException {
+
     }
 }
