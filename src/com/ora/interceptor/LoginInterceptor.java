@@ -21,8 +21,9 @@ public class LoginInterceptor implements HandlerInterceptor {
 				|| url.indexOf("/logout") >= 0 || url.indexOf("/toGongzi") >= 0 || url.indexOf("/user/checkUname") >= 0
 				|| url.indexOf("/toTestUser") >= 0 || url.indexOf("/user/checkLoginname") >= 0||url.indexOf("/toTest")>=0 
 				|| url.indexOf("/findHistory")>=0 || url.indexOf("/findDepartmentHistory")>=0 ||url.indexOf("/toHistory")>=0
-				||url.indexOf("/selectDayPerformance")>=0|| url.indexOf("/toDC")>=0 ||url.indexOf("/getHistory")>=0
-				||url.indexOf("/findDepartmentHistory")>=0) {
+				|| url.indexOf("/selectDayPerformance")>=0|| url.indexOf("/toDC")>=0 || url.indexOf("/toDCSlef") >= 0
+				|| url.indexOf("/getHistory")>=0
+				|| url.indexOf("/findDepartmentHistory")>=0) {
 			return true;
 		}
 		HttpSession session = req.getSession();

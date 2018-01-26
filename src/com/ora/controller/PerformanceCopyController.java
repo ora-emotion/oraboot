@@ -9,7 +9,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ora.po.Performance;
 import com.ora.po.User;
 import com.ora.service.PerformanceCopyService;
-import sun.misc.Perf;
 
 @Controller
 public class PerformanceCopyController {
@@ -117,7 +115,7 @@ public class PerformanceCopyController {
 		List<List> mymonths = new ArrayList<List>();
 		String[] dates = getDate();
 		for(String date : dates){
-			List<Double> realitys = new ArrayList<>();
+			List<Double> realitys = new ArrayList<Double>();
 			Integer i = 0;
 			List<Integer> updateCusts = new ArrayList<Integer>();
 			Double reality = 0.0;
