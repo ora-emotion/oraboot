@@ -3,8 +3,8 @@
 <mapper namespace="com.ora.dao.PerformanceCopyDao">
 
 	<!-- 查询个人之前月份的每日业绩 -->
-	<select id="selectDayPerformance" parameterType="Integer" resultType="Performance">
-		select * from perfor_copy where user_id = #{user_id}
+	<select id="selectDayPerformance" parameterType="performance" resultType="Performance">
+		select * from perfor_copy where user_id = #{user_id} and ptime = #{ptime}
 	</select>
 	
 	

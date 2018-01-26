@@ -22,9 +22,9 @@ public class PerformanceCopyServiceImpl implements PerformanceCopyService {
 	
 	
 	@Override
-	public List<Performance> selectDayPerformance(Integer user_id) {
+	public List<Performance> selectDayPerformance(Performance performance) {
 		// TODO Auto-generated method stub
-		return performanceCopyDao.selectDayPerformance(user_id);
+		return performanceCopyDao.selectDayPerformance(performance);
 	}
 
     

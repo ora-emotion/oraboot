@@ -110,7 +110,7 @@ public class HistoryController {
         return result;
     }
 
-    @RequestMapping("/findHistory")
+    @RequestMapping("/getHistory")
     @ResponseBody
     public List<List> findHistory() throws ParseException {
         List<History> histories = historyService.findHistory();
