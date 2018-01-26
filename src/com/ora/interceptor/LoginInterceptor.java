@@ -43,7 +43,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 						|| url.indexOf("/selectPerformance") >= 0 || url.indexOf("/findPerformanceByPnumber") >= 0
 						|| url.indexOf("/aboutme") >= 0 || url.indexOf("/updateme") >= 0
 						|| url.indexOf("/user/performance") >= 0 || url.indexOf("/checkPnumber") >= 0
-						||url.indexOf("/customer/checkCnumber")>=0||url.indexOf("/customer/checkUname")>=0) {
+						|| url.indexOf("/customer/checkCnumber")>=0||url.indexOf("/customer/checkUname")>=0
+						|| url.indexOf("/toDC")>=0 ) {
 					return true;
 				}
 			}

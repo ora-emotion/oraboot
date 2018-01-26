@@ -49,7 +49,9 @@ public class MyJob {
 		int i = 0;
 		for(Performance performance : performances){
 			Integer rows = performanceService.copyPerformance(performance);
-			i= i+1;
+			if(rows>0){
+				i++;
+			}
 		}
 		System.out.println("成功备份了 "+i+" 条业绩");
 	}
@@ -60,7 +62,9 @@ public class MyJob {
 		int i = 0;
 		for(Performance performance : performances){
 			Integer rows = performanceService.emptyPerformance(performance.getId());
-			i++;
+			if(rows>0){
+				i++;
+			}
 		}
 		System.out.println("成功删除了 "+i+" 条业绩");
 	}
