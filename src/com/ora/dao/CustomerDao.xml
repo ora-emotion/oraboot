@@ -8,11 +8,12 @@
 			separator="," close=")">
 			#{uname}
 		</foreach>
-		ORDER BY cid DESC
+		ORDER BY cnumber DESC
 	</select>
 
 	<!-- 验证学院编号是否存在 -->
-	<select id="findCnumberByCnumber" parameterType="Integer" resultType="customer">
+	<select id="findCnumberByCnumber" parameterType="Integer"
+		resultType="customer">
 		select * from customer where cnumber = #{cnumber}
 	</select>
 
@@ -65,7 +66,6 @@
 		</where>
 		ORDER BY cnumber DESC
 	</select>
-
 	<!-- 查询所有用户数 -->
 	<select id="selectCustomerCount" parameterType="List"
 		resultType="Integer">
@@ -96,6 +96,7 @@
 			<if test="cname != null">
 				cname = #{cname},
 			</if>
+			
 			<if test="csex != null and csex != ''">
 				csex = #{csex},
 			</if>

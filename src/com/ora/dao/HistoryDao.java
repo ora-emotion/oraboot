@@ -1,12 +1,14 @@
 package com.ora.dao;
 
-import com.ora.po.History;
-
 import java.util.List;
 
+import com.ora.po.History;
+
 public interface HistoryDao {
-    //查询所有备份记录
-    public List<History> selectAllHistory();
-    //根据部门id查询备份记录
-    public List<History> selectHistoryByDid(Integer udepartment);
+
+	//查询一部计划金额，实际金额，完成率
+	public List<History> findHistory();
+	
+	public List<History> findDepartmentHistory(Integer udepartment);
+	
 }

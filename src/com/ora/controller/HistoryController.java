@@ -110,20 +110,20 @@ public class HistoryController {
         return result;
     }
 
-    @RequestMapping("/getHistory")
+    @RequestMapping("/findHistory")
     @ResponseBody
-    public List<List> getHistory() throws ParseException {
-        List<History> histories = historyService.selectAllHistory();
+    public List<List> findHistory() throws ParseException {
+        List<History> histories = historyService.findHistory();
         List<List> result = compute(histories);
         return result;
     }
-    @RequestMapping("/getDepartHistory")
+    @RequestMapping("/findDepartmentHistory")
     @ResponseBody
-    public List<List> getDepartHistory() throws ParseException {
+    public List<List> findDepartmentHistory() throws ParseException {
 
-        List<History> dpartHis1 = historyService.selectHistoryByDid(1);
+        List<History> dpartHis1 = historyService.findDepartmentHistory(1);
         List<List> re1 = compute(dpartHis1);
-        List<History> dpartHis2 = historyService.selectHistoryByDid(2);
+        List<History> dpartHis2 = historyService.findDepartmentHistory(2);
         List<List> re2 = compute(dpartHis2);
         List<List> result = new ArrayList<List>();
 

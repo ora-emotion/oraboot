@@ -1,10 +1,12 @@
 package com.ora.service;
 
-import com.ora.po.History;
-
 import java.util.List;
 
+import com.ora.po.History;
+
 public interface HistoryService {
-    public List<History> selectAllHistory();
-    public List<History> selectHistoryByDid(Integer udepartment);
+
+	public List<History> findHistory();
+
+	public List<History> findDepartmentHistory(Integer udepartment);
 }
