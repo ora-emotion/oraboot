@@ -136,6 +136,7 @@
       <div class="ora-header-menu">
         <span>个人资料</span>
         <span>个人业绩</span>
+        <span class="menu-chart">个人业绩图表</span>
         <a href="${pageContext.request.contextPath}/logout">退出</a>
       </div>
       <!-- End : 个人资料菜单 -->

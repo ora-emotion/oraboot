@@ -116,6 +116,9 @@ var nav = (function () {
         case 'ora-nav-performance' :
           window.location.href = 'toPm';              // 加载业绩管理页面
           break;
+        case 'ora-nav-chart' :
+          window.location.href = 'toDC';              // 加载业绩图表模块
+          break;
         case 'ora-nav-mentor-members' :
           console.log('test');
           break;
