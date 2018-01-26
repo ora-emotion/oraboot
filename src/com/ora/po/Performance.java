@@ -10,9 +10,10 @@ public class Performance {
     private Integer overtime;       //延长时间(天数)
     private String updateRemark;    //升级备注
     private Integer user_id;        //导师编号
-    private String user_name;       //导师姓名
-    private Integer user_department;//导师部门
-
+    private Integer user_department;//导师所属部门
+    private String user_name;		//导师姓名
+    
+    
     public Integer getId() {
         return id;
     }
@@ -69,34 +70,20 @@ public class Performance {
         this.user_id = user_id;
     }
 
-    public String getUser_name() {
-        return user_name;
-    }
+	public Integer getUser_department() {
+		return user_department;
+	}
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
-    }
+	public void setUser_department(Integer user_department) {
+		this.user_department = user_department;
+	}
 
-    public Integer getUser_department() {
-        return user_department;
-    }
+	public String getUser_name() {
+		return user_name;
+	}
 
-    public void setUser_department(Integer user_department) {
-        this.user_department = user_department;
-    }
-
-    @Override
-    public String toString() {
-        return "Performance{" +
-                "id=" + id +
-                ", pnumber='" + pnumber + '\'' +
-                ", pmoney=" + pmoney +
-                ", ptime='" + ptime + '\'' +
-                ", overtime=" + overtime +
-                ", updateRemark='" + updateRemark + '\'' +
-                ", user_id=" + user_id +
-                ", user_name='" + user_name + '\'' +
-                ", user_department=" + user_department +
-                '}';
-    }
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+    
 }
