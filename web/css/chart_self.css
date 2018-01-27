@@ -1,0 +1,46 @@
+/**
+ * @file name    : chart_self
+ * @created time : 2018/1/26 15:30
+ * @author       : smpower
+ * @mail         : bzsjxhywrf@outlook.com
+ * @github       : https://github.com/smpower/
+*/
+
+
+.chart-wrap {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 260px;
+  position: relative;
+  top: 120px;
+  left: 0;
+}
+.chart_nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #313131;
+  margin-right: 50px;
+  padding: 0 5px;
+}
+.chart_nav_item {
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s;
+  border-radius: 0;
+}
+.chart_nav_item:hover {
+  background: #d0d0d0;
+}
+.chart_nav_item_active {
+  background: #d0d0d0;
+}
+.chart {
+  width: 1200px;
+  height: 700px;
+}
