@@ -137,6 +137,12 @@
 
   <!-- Start : 图表主体 -->
   <div class="chart-wrap">
+    <div class="chart_nav">
+      <span class="chart_nav_item text-center chart_nav_item_active">总图表</span>
+      <span class="chart_nav_item text-center">1 月</span>
+      <span class="chart_nav_item text-center">2 月</span>
+      <span class="chart_nav_item text-center">3 月</span>
+    </div>
     <div class="chart"></div>
   </div>
   <!-- End : 图表主体 -->

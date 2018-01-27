@@ -9,7 +9,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ora.po.Performance;
 import com.ora.po.User;
 import com.ora.service.PerformanceCopyService;
-import sun.misc.Perf;
 
 @Controller
 public class PerformanceCopyController {
@@ -33,8 +31,10 @@ public class PerformanceCopyController {
 
 		//当前时间的上个月
 		Calendar c = Calendar.getInstance();
+		c.setTime(new Date());
 		c.add(Calendar.MONTH, -1);
-		SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM");
+		SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(c.getTime());
 		String prev = sdf.format(c.getTime());
 
 		//定义开始时间
@@ -111,11 +111,11 @@ public class PerformanceCopyController {
 	@ResponseBody
 	public List<List> selectDayPerformance(HttpSession session) throws ParseException {
 		User user = (User)session.getAttribute("USER_SESSION");
-		Integer user_id = user.getUid();
+		Integer user_id = 1;
 		List<List> mymonths = new ArrayList<List>();
 		String[] dates = getDate();
 		for(String date : dates){
-			List<Double> realitys = new ArrayList<>();
+			List<Double> realitys = new ArrayList<Double>();
 			Integer i = 0;
 			List<Integer> updateCusts = new ArrayList<Integer>();
 			Double reality = 0.0;
