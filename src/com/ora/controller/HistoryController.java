@@ -85,11 +85,11 @@ public class HistoryController {
 
     //封装集合
     static final List<List> compute(List<History> histories) throws ParseException {
-        List<List> result = new ArrayList<>();
+        List<List> result = new ArrayList<List>();
         Double urate = 0.0;
-        List<Double> uplans = new ArrayList<>();
-        List<Double> urealitys = new ArrayList<>();
-        List<Double> urates = new ArrayList<>();
+        List<Double> uplans = new ArrayList<Double>();
+        List<Double> urealitys = new ArrayList<Double>();
+        List<Double> urates = new ArrayList<Double>();
         String[] hdates = getDate();
         for(String date : hdates){
             Double uplan = getUplan(histories,date);
