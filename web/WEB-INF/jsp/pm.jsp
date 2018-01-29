@@ -239,11 +239,11 @@
           <!-- Start : 导师一部 -->
           <div class="ora-user-pm-sd-department-item01 department-item">
             <span class="department-text text-center"></span>
-            <span class="plan-text text-center">计划金额: </span>
+            <span class="plan-text text-center">计划: </span>
             <span class="plan-num text-left"></span>
-            <span class="reality-text text-center">实际金额: </span>
+            <span class="reality-text text-center">实际: </span>
             <span class="reality-num text-left"></span>
-            <span class="cust-text text-center">业绩人次: </span>
+            <span class="cust-text text-center">人次: </span>
             <span class="cust-num text-left"></span>
             <span class="department-rate text-center"></span>
           </div>
@@ -252,11 +252,11 @@
           <!-- Start : 导师二部 -->
           <div class="ora-user-pm-sd-department-item02 department-item">
             <span class="department-text text-center"></span>
-            <span class="plan-text text-center">计划金额</span>
+            <span class="plan-text text-center">计划</span>
             <span class="plan-num text-left"></span>
-            <span class="reality-text text-center">实际金额</span>
+            <span class="reality-text text-center">实际</span>
             <span class="reality-num text-left"></span>
-            <span class="cust-text text-center">业绩人次</span>
+            <span class="cust-text text-center">人次</span>
             <span class="cust-num text-left"></span>
             <span class="department-rate text-center"></span>
           </div>
