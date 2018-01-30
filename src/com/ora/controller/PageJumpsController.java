@@ -89,7 +89,5 @@ public class PageJumpsController {
     }
 
     @RequestMapping("/toDCSelf")
-    public String toDCSelf(){
-        return "chart_self";
-    }
+    public String toDCSelf() { return "chart_self"; }
 }

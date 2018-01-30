@@ -34,6 +34,10 @@
     <select id="findUser" parameterType="String" resultType="user">
              SELECT * FROM user WHERE loginname = #{loginname} AND password = #{password}
     </select>
+    <!-- 修改最后登录时间 -->
+    <update id="updateLoginDate" parameterType="user">
+        UPDATE user set loginDate = #{loginDate} where uid = #{uid}
+    </update>
     <!-- 验证密保问题 -->
     <select id="selectEncrypted" parameterType="String" resultType="user">
         SELECT * FROM user WHERE loginname = #{loginname} AND encrypted_id = #{encrypted_id} AND encrypted_result=#{encrypted_result}

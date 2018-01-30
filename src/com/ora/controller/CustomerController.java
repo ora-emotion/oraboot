@@ -227,12 +227,17 @@ public class CustomerController {
 				customer.setFreeze(customer2.getFreeze());
 				customer.setUnfreeze(new Date());
 
-				Date freeze = customer2.getFreeze();
+				Date freeze = customer.getFreeze();
 
 				Date bmdate = sdf.parse(customer.getBmtime());
 
 				Integer serdate = customer2.getSerdata();
-				customer.setSydata(serdate - ((freeze.getTime()-bmdate.getTime())/(24*60*60*1000)));
+				if(freeze != null){
+					customer.setSydata(serdate - ((freeze.getTime()-bmdate.getTime())/(24*60*60*1000)));
+				}else{
+					customer.setSydata(serdate - ((customer.getUnfreeze().getTime() - bmdate.getTime())/(24*60*60*1000)));
+				}
+
 			}
 		}
 

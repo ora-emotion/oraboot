@@ -20,27 +20,33 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     //注册
-    public int addUser(User user){
+    public int addUser(User user) {
         return userDao.addUser(user);
     }
 
     //登录
     @Override
     public User findUser(String loginname, String password) {
-        User user = userDao.findUser(loginname,password);
+        User user = userDao.findUser(loginname, password);
         return user;
+    }
+
+    //修改最后登录时间
+    @Override
+    public Integer updateLoginDate(User user) {
+        return userDao.updateLoginDate(user);
     }
 
     //验证密保问题
     @Override
-    public User selectEncrypted(String loginname,String encrypted_id,String encrypted_result) {
-        User user = userDao.selectEncrypted(loginname,encrypted_id,encrypted_result);
+    public User selectEncrypted(String loginname, String encrypted_id, String encrypted_result) {
+        User user = userDao.selectEncrypted(loginname, encrypted_id, encrypted_result);
         return user;
     }
 
     //设置密码
-    public int setPassword(Integer uid,String password){
-        return userDao.setPassword(uid,password);
+    public int setPassword(Integer uid, String password) {
+        return userDao.setPassword(uid, password);
     }
 
     //根据当前登录者姓名查询其下所有员工
@@ -56,7 +62,7 @@ public class UserServiceImpl implements UserService {
     }
 
     //根据uid修改个人资料
-    public int updateUserByUid(User user){
+    public int updateUserByUid(User user) {
         return userDao.updateUserByUid(user);
     }
 
@@ -149,10 +155,12 @@ public class UserServiceImpl implements UserService {
     public Integer updateSupperior(User user) {
         return userDao.updateSupperior(user);
     }
+
     @Override
     public Integer updateCustomer(User user) {
         return userDao.updateCustomerUname(user);
     }
+
     @Override
     public Integer updatePermissionUname(User user) {
         return userDao.updatePermissionUname(user);

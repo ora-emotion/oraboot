@@ -24,6 +24,7 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -112,6 +113,11 @@ public class FileController {
         headers.setContentDispositionFormData("attachment",filename);
         //定义以流的形式下载返回文件数据
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+
+        //更新用户文件下载次数
+        Upfile upfile = fileService.findFileByFid(file_id);
+        upfile.setDownNum(upfile.getDownNum()+1);
+        Integer rows = fileService.updateDownNum(upfile);
         //使用springmvc框架的ResponseEntity对象封装返回下载数据
         return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file),headers, HttpStatus.OK);
     }
@@ -156,16 +162,21 @@ public class FileController {
     //查询用户文件
     @RequestMapping("/findFile")
     @ResponseBody
-    public Upfile findFile (@RequestBody Customer customer, HttpSession session){
-        Integer file_id = customer.getFile_id();
+    public List<Upfile> findFiles (@RequestBody Customer customer, HttpSession session){
+        Integer cust_cnumber = 1328;
         User user = (User) session.getAttribute("USER_SESSION");
         String uname = user.getUname();
-        Upfile upfile = new Upfile(0,"没有文件",uname,"0","0000-00-00");
-        if (file_id != 0){
-            Upfile file = fileService.findFile(file_id);
-            return file;
+        Upfile upfile = new Upfile(0,"没有文件",uname,"0","0000-00-00",0);
+        List<Upfile> upfiles = new ArrayList<Upfile>();
+        upfiles.add(upfile);
+        if (cust_cnumber != 0){
+            List<Upfile> files = fileService.findFile(cust_cnumber);
+            for(Upfile upfile1 : files){
+                System.out.println(upfile1);
+            }
+            return files;
         }else{
-            return upfile;
+            return upfiles;
         }
 
     }

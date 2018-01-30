@@ -27,5 +27,12 @@ public class PerformanceCopyServiceImpl implements PerformanceCopyService {
 		return performanceCopyDao.selectDayPerformance(performance);
 	}
 
+
+	@Override
+	public List<Performance> selectDepartmentPerformance(Performance performance) {
+		// TODO Auto-generated method stub
+		return performanceCopyDao.selectDepartmentPerformance(performance);
+	}
+
     
 }

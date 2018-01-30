@@ -8,8 +8,9 @@ public class Upfile {
     private Integer fid;        //文件id
     private String fname;       //文件名
     private String uname;       //上传人
-    private String cust_cnumber;    //学员编号
+    private String cust_cnumber;//学员编号
     private String update_time; //上传时间
+    private Integer downNum;    //下载次数
 
     public Integer getFid() {
         return fid;
@@ -52,19 +53,36 @@ public class Upfile {
         this.cust_cnumber = cust_cnumber;
     }
 
-    public Upfile(){
+    public Upfile() {
 
     }
 
-    public Upfile(Integer fid, String fname, String uname, String cust_cnumber, String update_time) {
+    public Upfile(Integer fid, String fname, String uname, String cust_cnumber, String update_time, Integer downNum) {
         this.fid = fid;
         this.fname = fname;
         this.uname = uname;
         this.cust_cnumber = cust_cnumber;
         this.update_time = update_time;
+        this.downNum = downNum;
     }
 
-    public void transferTo(File file) throws IOException, IllegalStateException {
+    public Integer getDownNum() {
+        return downNum;
+    }
 
+    public void setDownNum(Integer downNum) {
+        this.downNum = downNum;
+    }
+
+    @Override
+    public String toString() {
+        return "Upfile{" +
+                "fid=" + fid +
+                ", fname='" + fname + '\'' +
+                ", uname='" + uname + '\'' +
+                ", cust_cnumber='" + cust_cnumber + '\'' +
+                ", update_time='" + update_time + '\'' +
+                ", downNum=" + downNum +
+                '}';
     }
 }

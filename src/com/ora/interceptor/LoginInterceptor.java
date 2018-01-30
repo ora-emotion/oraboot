@@ -21,20 +21,14 @@ public class LoginInterceptor implements HandlerInterceptor {
 				|| url.indexOf("/logout") >= 0 || url.indexOf("/toGongzi") >= 0 || url.indexOf("/user/checkUname") >= 0
 				|| url.indexOf("/toTestUser") >= 0 || url.indexOf("/user/checkLoginname") >= 0||url.indexOf("/toTest")>=0 
 				|| url.indexOf("/findHistory")>=0 || url.indexOf("/findDepartmentHistory")>=0 ||url.indexOf("/toHistory")>=0
-				|| url.indexOf("/selectDayPerformance")>=0|| url.indexOf("/toDC")>=0 || url.indexOf("/toDCSlef") >= 0
-				|| url.indexOf("/getHistory")>=0
-				|| url.indexOf("/findDepartmentHistory")>=0) {
+				||url.indexOf("/selectMyDayPerformance")>=0||url.indexOf("/selectMyMonthPerformance")>=0|| url.indexOf("/toDC")>=0 ||url.indexOf("/getHistory")>=0
+				||url.indexOf("/findDepartmentHistory")>=0||url.indexOf("/toDCSelf")>=0|| url.indexOf("/selectDepartmentPerformance")>=0
+				|| url.indexOf("/testJsonp")>=0) {
 			return true;
 		}
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("USER_SESSION");
 		Permission permission = (Permission) session.getAttribute("PERMISSION");
-		Integer delete_file = permission.getDelete_file();
-		Integer delete_cust = permission.getDelete_cust();
-		Integer delete_user = permission.getDelete_user();
-		Integer update_cust = permission.getUpdate_cust();
-		Integer update_user = permission.getUpdate_user();
-		Integer permission_user = permission.getPermission_user();
 		if (user != null) {
 			if (user.getPosition() < 5) {
 				if (url.indexOf("/toCustomer") >= 0 || url.indexOf("/customer/select") >= 0
@@ -46,11 +40,10 @@ public class LoginInterceptor implements HandlerInterceptor {
 						|| url.indexOf("/aboutme") >= 0 || url.indexOf("/updateme") >= 0
 						|| url.indexOf("/user/performance") >= 0 || url.indexOf("/checkPnumber") >= 0
 						|| url.indexOf("/customer/checkCnumber")>=0||url.indexOf("/customer/checkUname")>=0
-						 ) {
+						) {
 					return true;
 				}
 			}
-
 			if (user.getPosition() >= 4) {
 				if (url.indexOf("/user/root/selectMajordomo") >= 0) {
 					return true;
@@ -75,6 +68,12 @@ public class LoginInterceptor implements HandlerInterceptor {
 			}
 
 			if (permission != null) {
+				Integer delete_file = permission.getDelete_file();
+				Integer delete_cust = permission.getDelete_cust();
+				Integer delete_user = permission.getDelete_user();
+				Integer update_cust = permission.getUpdate_cust();
+				Integer update_user = permission.getUpdate_user();
+				Integer permission_user = permission.getPermission_user();
 				if (update_user.equals(1)) {
 					if (url.indexOf("/updatePlan") >= 0) {
 						return true;
@@ -116,9 +115,11 @@ public class LoginInterceptor implements HandlerInterceptor {
 			req.getRequestDispatcher("/WEB-INF/jsp/customer.jsp").forward(req, res);
 			return false;
 		}
+
 		req.setAttribute("msg", "您还没有登录，请先登录");
-		req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, res);
+		req.getRequestDispatcher("index.jsp").forward(req, res);
 		return false;
+
 	}
 
 	@Override

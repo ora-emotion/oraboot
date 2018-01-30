@@ -22,6 +22,7 @@ public class User implements Serializable{
     private String remark;          //备注
     private String createDate;      //创建时间
     private String updateDate;      //最后时间更新
+    private String loginDate;       //最后登录时间
     private String entryTime;       //入职时间
     private String encrypted_id;    //密保id
     private String encrypted_result;//密保答案
@@ -142,6 +143,14 @@ public class User implements Serializable{
 
     public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public String getLoginDate() {
+        return loginDate;
+    }
+
+    public void setLoginDate(String loginDate) {
+        this.loginDate = loginDate;
     }
 
     public String getEntryTime() {

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -26,13 +28,17 @@ public class PerformanceController {
 	@RequestMapping("/addPerformance")
 	@ResponseBody
 	public List<Performance> addPerformance(@RequestBody Performance performance, Model model) {
-		System.out.println(performance);
 		Integer user_id = performance.getUser_id();
 		String cnumber = performance.getPnumber();
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String ptime = sdf.format(date);
+		performance.setPtime(ptime);
 		Customer customer = performanceService.selectCustomerByCnumber(cnumber);
 		if (customer == null) {
 			model.addAttribute("msg", "没有该学员编号");
 		} else {
+			System.out.println(performance);
 			int rows = performanceService.addPerformance(performance);
 			model.addAttribute("msg", "添加业绩成功");
 		}

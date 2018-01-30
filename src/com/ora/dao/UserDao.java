@@ -20,12 +20,17 @@ public interface UserDao {
 	// 登录-->通过账号密码查询用户
 	public User findUser(@Param("loginname") String loginname, @Param("password") String password);
 
+	//修改最后登录时间
+	public Integer updateLoginDate(User user);
+
 	// 验证账号、密保问题和答案
 	public User selectEncrypted(@Param("loginname") String loginname, @Param("encrypted_id") String encrypted_id,
                                 @Param("encrypted_result") String encrypted_result);
 
 	// 设置密码
 	public int setPassword(@Param("id") Integer id, @Param("password") String password);
+
+
 
 	// 通过上级领导名查询所有员工
 	public List<User> selectAllUserBySupperior(@Param("uname") String uname);
