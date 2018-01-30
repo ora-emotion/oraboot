@@ -134,6 +134,10 @@
 
   <!-- Start : 图表主体 -->
   <div class="chart-wrap">
+    <div class="chart-nav">
+      <span class="chart_nav_item text-center chart_nav_item_active" data-item="0">导师部数据</span>
+      <span class="chart_nav_item text-center" data-item="1">部门对比数据</span>
+    </div>
     <div class="chart"></div>
   </div>
   <!-- End : 图表主体 -->

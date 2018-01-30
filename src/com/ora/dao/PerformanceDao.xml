@@ -5,7 +5,8 @@
         select * FROM customer WHERE cnumber = #{cnumber}
     </select>
     <insert id="addPerformance" parameterType="performance">
-        INSERT INTO performance (pnumber,pmoney,overtime,updateRemark,user_id,user_name,user_department) VALUES (#{pnumber},#{pmoney},#{overtime},#{updateRemark},#{user_id},#{user_name},#{user_department});
+        INSERT INTO performance (pnumber,pmoney,ptime,overtime,updateRemark,user_id,user_name,user_department) VALUES
+        (#{pnumber},#{pmoney},#{ptime},#{overtime},#{updateRemark},#{user_id},#{user_name},#{user_department});
     </insert>
     <delete id="deletePerformance" parameterType="performance">
         DELETE FROM performance WHERE id = #{id} AND user_id = #{user_id}
@@ -20,7 +21,7 @@
         SELECT * from performance
     </select>
     <insert id="copyPerformance" parameterType="performance">
-                INSERT INTO perfor_copy (pnumber,pmoney,overtime,updateRemark,user_id,user_name,user_department) VALUES (#{pnumber},#{pmoney},#{overtime},#{updateRemark},#{user_id},#{user_name},#{user_department});
+          INSERT INTO perfor_copy (pnumber,pmoney,overtime,updateRemark,user_id,user_name,user_department) VALUES (#{pnumber},#{pmoney},#{overtime},#{updateRemark},#{user_id},#{user_name},#{user_department});
     </insert>
     <delete id="emptyPerformance" parameterType="Integer">
         DELETE from performance WHERE id = #{id}

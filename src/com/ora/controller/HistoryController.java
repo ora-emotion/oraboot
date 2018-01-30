@@ -95,11 +95,12 @@ public class HistoryController {
             Double uplan = getUplan(histories,date);
             Double ureality = getUreality(histories,date);
             Double rate = (Double)ureality/uplan;
-            urate = Double.parseDouble(String.format("%.2f",rate));;
+            Double rate1 = rate * 100;
             uplans.add(uplan);
             urealitys.add(ureality);
             if(uplan!=0 && ureality!=0){
-                urates.add(urate*100);
+                urate = Double.parseDouble(String.format("%.2f",rate1));
+                urates.add(urate);
             }else{
                 urates.add(0.0);
             }
@@ -115,6 +116,7 @@ public class HistoryController {
     public List<List> findHistory() throws ParseException {
         List<History> histories = historyService.findHistory();
         List<List> result = compute(histories);
+        System.out.println(result);
         return result;
     }
     @RequestMapping("/findDepartmentHistory")

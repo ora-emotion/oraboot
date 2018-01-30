@@ -15,8 +15,17 @@
     </delete>
     <!-- 查询当前用户的文件 -->
     <select id="findFile" parameterType="Integer" resultType="upfile">
+        SELECT * FROM file WHERE cust_cnumber = #{cust_cnumber}
+    </select>
+    <!-- 根据fid查询文件 -->
+    <select id="findFileByFid" parameterType="Integer" resultType="upfile">
         SELECT * FROM file WHERE fid = #{file_id}
     </select>
+
+    <!-- 更新用户文件下载次数 -->
+    <update id="updateDownNum" parameterType="Integer">
+        UPDATE file set downNum = #{downNum} WHERE fid = #{fid}
+    </update>
 
     <select id="findFileId" resultType="upfile" parameterType="String">
         SELECT * from file WHERE fname = #{fname}

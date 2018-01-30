@@ -11,6 +11,8 @@ public interface UserService {
     public int addUser(User user);
     //登录
     public User findUser(String loginname, String password);
+    //修改最后登录时间
+    public Integer updateLoginDate(User user);
     //验证密保问题
     public User selectEncrypted(String loginname, String encrypted_id, String encrypted_result);
     //设置密码

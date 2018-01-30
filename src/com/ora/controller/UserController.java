@@ -1,5 +1,6 @@
 package com.ora.controller;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.ora.po.Permission;
 import com.ora.po.User;
 import com.ora.service.UserService;
@@ -12,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -94,6 +96,17 @@ public class UserController {
 		// 通过账号密码查询用户
 		User user = userService.findUser(loginname, password);
 		if (user != null) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+			Date date = new Date();
+			User user1 = new User();
+			user1.setLoginDate(sdf.format(date));
+			user1.setUid(user.getUid());
+			Integer rows = userService.updateLoginDate(user1);
+			if(rows >0){
+				System.out.println("记录时间成功");
+			}else{
+				System.out.println("记录时间失败");
+			}
 			if (user.getService() == 0) {
 				Integer user_id = user.getUid();
 				Permission permission = userService.findUserPermission(user_id);
@@ -111,6 +124,7 @@ public class UserController {
 				// 跳转到主页面
 				return "user";
 			}
+
 		}
 		model.addAttribute("msg", "账号或密码错误，请重新输入！");
 		return "login";
@@ -356,4 +370,15 @@ public class UserController {
 		return result;
 	}
 
+
+	//跨域请求测试
+	@RequestMapping(value = "/testJsonp",method = { RequestMethod.GET })
+	@ResponseBody
+	public Object test(String callback) throws IOException {
+		JSONPObject jsonpObject = null;
+		//数据
+		List<User> users = userService.selectAllUser();
+		jsonpObject = new JSONPObject(callback,users);
+		return jsonpObject;
+	}
 }
