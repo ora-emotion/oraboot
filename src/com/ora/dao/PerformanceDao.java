@@ -23,4 +23,6 @@ public interface PerformanceDao {
     public Integer copyPerformance(Performance performance);
     //删除数据
     public Integer emptyPerformance(Integer id);
+    //查询公告业绩(当天)
+    public List<Performance> selectPerformanceByDay(String ptime);
 }

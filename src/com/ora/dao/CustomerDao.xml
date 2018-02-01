@@ -81,8 +81,7 @@
 	</select>
 
 	<!-- 分页查询 -->
-	<select id="selectCustomerLimit" parameterType="Integer"
-		resultType="customer">
+	<select id="selectCustomerLimit" parameterType="Integer" resultType="customer">
 		SELECT * from customer limit #{nops},10
 	</select>
 

@@ -4,11 +4,11 @@
 
 	<!-- 查询个人之前月份的每日业绩 -->
 	<select id="selectDayPerformance" parameterType="performance" resultType="Performance">
-		select * from perfor_copy where user_id = #{user_id} and ptime = #{ptime}
+		select * from perfor_copy where user_id = #{user_id} and ptime LIKE concat(#{ptime},'%')
 	</select>
 	
 	<!-- 查询部门之前月份的每日业绩 -->
 	<select id="selectDepartmentPerformance" parameterType="performance" resultType="Performance">
-		select * from perfor_copy where user_department = #{user_department} and ptime = #{ptime}
+		select * from perfor_copy where user_department = #{user_department} and ptime LIKE concat(#{ptime},'%')
 	</select>
 </mapper>

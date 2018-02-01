@@ -48,7 +48,7 @@ public interface UserService {
     //备份数据
     public Integer insertHistory(User user);
     //清空数据
-    public Integer updateUserPerformance(User user);
+    public Integer updateUserPerformancePlan(Integer uid);
     //根据查询超级管理员姓名
     public String findSuperUname();
     //修改直属上级姓名

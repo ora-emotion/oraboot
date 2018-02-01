@@ -65,4 +65,10 @@ public class PerformanceServiceImpl implements PerformanceService {
     public Integer emptyPerformance(Integer id) {
         return performanceDao.emptyPerformance(id);
     }
+
+    //查询公告业绩（按天）
+    @Override
+    public List<Performance> selectPerformanceByDay(String ptime) {
+        return performanceDao.selectPerformanceByDay(ptime);
+    }
 }
