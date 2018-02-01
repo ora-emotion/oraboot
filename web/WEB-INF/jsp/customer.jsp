@@ -16,6 +16,7 @@
     <!-- import third-party javascript -->
     <script src="js/jq/jquery-3.2.1.js"            charset="utf-8"></script>
     <script src="js/jq/jquery.uriAnchor.js"        charset="utf-8"></script>
+    <script src="js/swiper/swiper.min.js"          charset="utf-8"></script>
     <script src="js/plugin/pagination.js"          charset="utf-8"></script>
     <script src="js/plugin/modal.js"               charset="utf-8"></script>
     <script src="js/util.js"                       charset="utf-8"></script>
@@ -228,6 +229,14 @@
             <span class="ora-user-customer-search-icon"></span>
           </div>
           <!-- End : 搜索模块 -->
+
+          <!-- Start : 公告栏 -->
+          <div class="ora-user-customer-notice">
+            <div class="swiper-container">
+              <div class="swiper-wrapper"></div>
+            </div>
+          </div>
+          <!-- End : 公告栏 -->
 
           <!-- Start : 添加模块 -->
           <div class="ora-user-customer-add">

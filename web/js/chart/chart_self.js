@@ -22,8 +22,8 @@ var chartSelf = (function () {
     stateMap  = { $container : null },
     jqueryMap = {},
 
-    setJqueryMap,   getData,   getMonthData, createMonthMenu, renderChart,
-    renderDayChart, toggleNav, onClick, initModule
+    setJqueryMap,   getData, getMonthData, createMonthMenu, renderChart,
+    renderDayChart, onClick, initModule
   ;
   // ----------------------- END MODULE SCOPE VARIABLES ----------------------
 
@@ -94,7 +94,7 @@ var chartSelf = (function () {
     $('.chart_nav span').remove();
     $('.chart_nav').append('<span class="chart_nav_item text-center chart_nav_item_active" data-month="0">总图表</span>')
 
-    for (i = 1; i < data.length + 1; i++) {
+    for (i = 1; i < data[0].length + 1; i++) {
       $('.chart_nav').append(
         '<span class="chart_nav_item text-center" data-month=' + i + '>' +
           i + '月' +
@@ -291,13 +291,6 @@ var chartSelf = (function () {
     myChart.setOption(option);
   };
   // End DOM method /renderDayChart/
-
-  // Begin DOM method /toggleNav/
-  toggleNav = function () {
-    var user_position = configMap.userinfo_map.user_position;
-    console.log(user_position);
-  };
-  // End DOM method /toggleNav/
   // ----------------------------- END DOM METHODS ---------------------------
 
   // -------------------------- BEGIN EVENT HANDLERS -------------------------
@@ -485,7 +478,6 @@ var chartSelf = (function () {
       createMonthMenu : createMonthMenu
     });
     onClick();
-    toggleNav();
   };
   // End public method /initModule/
 
