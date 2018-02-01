@@ -140,8 +140,8 @@ public class UserServiceImpl implements UserService {
 
     //清空数据
     @Override
-    public Integer updateUserPerformance(User user) {
-        return userDao.updateUserPerformance(user);
+    public Integer updateUserPerformancePlan(Integer uid) {
+        return userDao.updateUserPerformancePlan(uid);
     }
 
     //根据查询超级管理员姓名

@@ -87,17 +87,7 @@
 			<value>insertHistory</value>
 		</property>
 	</bean>
-	<bean id="myJobDetai2"
-		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<!-- 用到的Job实例 -->
-		<property name="targetObject">
-			<ref bean="myJob" />
-		</property>
-		<!-- Job实例中的方法 -->
-		<property name="targetMethod">
-			<value>updateUserPerformance</value>
-		</property>
-	</bean>
+
 	<bean id="myJobDetai3"
 		  class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<!-- 用到的Job实例 -->
@@ -132,15 +122,6 @@
 			<value>0 0 0 1 * ?</value>
 		</property>
 	</bean>
-	<bean id="myTrigger2"
-		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
-		<property name="jobDetail">
-			<ref bean="myJobDetai2" />
-		</property>
-		<property name="cronExpression">
-			<value>0 1 0 1 * ?</value>
-		</property>
-	</bean>
 	<bean id="myTrigger3"
 		  class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 		<property name="jobDetail">
@@ -156,7 +137,7 @@
 			<ref bean="myJobDetai4" />
 		</property>
 		<property name="cronExpression">
-			<value>0 1 0 1 * ?</value>
+			<value>0 0 12 2 * ?</value>
 		</property>
 	</bean>
 
@@ -167,7 +148,6 @@
 		<property name="triggers">
 			<list>
 				<ref bean="myTrigger" />
-				<ref bean="myTrigger2" />
 				<ref bean="myTrigger3" />
 				<ref bean="myTrigger4" />
 			</list>

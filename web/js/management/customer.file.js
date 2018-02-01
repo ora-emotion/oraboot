@@ -93,9 +93,9 @@ customer.file = (function () {
     file_id       = arg_map.file_id;
 
     configMap.arg_map = {
-      this_line : this_line,
+      this_line     : this_line,
       this_line_arr : this_line_arr,
-      file_id : file_id
+      file_id       : file_id
     };
 
     // Start : 下载文件
@@ -124,7 +124,7 @@ customer.file = (function () {
           '</td>' +
           '<td class="upload_person text-left" colspan="2">上传人：</td>' +
           '<td class="upload_time text-left" colspan="3">上传时间：</td>' +
-          '<td class="icons" colspan="3">' +
+          '<td class="icons" colspan="7">' +
             '<span class="icon_upload hidden"></span>' +
             '<span class="icon_download clicked"></span>' +
             '<span class="icon_delete"></span>' +
@@ -156,25 +156,21 @@ customer.file = (function () {
         this_line.siblings('tr').removeClass('extend');
 
         this_line.after(
-            '<tr class="file">' +
-            '<td colspan="14">' +
-            '<form class="upload_file" action="fileUpload" method="post" enctype="multipart/form-data">' +
-
-            '<input class="uname" type="hidden" name="uname">' +
-
-            '<br>' +
-
-            '<input class="cnum" type="hidden" name="cust_cnumber">' +
-
-            '<br>' +
-
-            '<input class="file" type="file" name="uploadfile" multiple="multiple">' +
-
-            '<button class="btn_upload" type="button"></button>' +
-
-            '</form>' +
+          '<tr class="file">' +
+            '<td colspan="5">' +
+              '<form class="upload_file" action="fileUpload" method="post" enctype="multipart/form-data">' +
+                '<input class="uname" type="hidden" name="uname">' +
+                '<br>' +
+                '<input class="cnum" type="hidden" name="cust_cnumber">' +
+                '<br>' +
+                '<input class="file" type="file" name="uploadfile" multiple="multiple">' +
+                '<button class="btn_upload" type="button"></button>' +
+              '</form>' +
             '</td>' +
-            '</tr>'
+            '<td colspan="13">' +
+              '<span class="view_more">查看</span>' +
+            '</td>' +
+          '</tr>'
         );
 
         document.querySelector('tr.file input[type=file]').onchange = function () {

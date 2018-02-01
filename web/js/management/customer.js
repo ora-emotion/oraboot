@@ -77,7 +77,7 @@ var customer = (function () {
     },
     jqueryMap = {},
 
-    setJqueryMap, getCustomerListData, searchCustomer,
+    setJqueryMap, getCustomerListData, renderNotice,
     onClick,      initModule
   ;
 
@@ -142,6 +142,43 @@ var customer = (function () {
   };
   // End : getCustomerListData()
 
+  // Start : renderNotice()
+  // des   : 渲染公告栏
+  //
+  renderNotice = function () {
+    var i, myNotice;
+    $.ajax({
+      type    : 'post',
+      url     : '/selectPerformanceByDay',
+      success : function (data) {
+        if (data.length === 0) { console.log('暂无公告数据'); return false; }
+
+        $('.ora-user-customer-notice .swiper-slide').remove();
+
+        for (i = 0; i < data.length; i++) {
+          $('.ora-user-customer-notice .swiper-wrapper').append(
+            '<div class="swiper-slide">' +
+              '<p>' +
+                data[i].ptime + ' 恭喜 ' +
+                '<span style="color: #fd3232; font-weight: bold;">' +
+                  data[i].user_name +
+                '</span>' +
+                ' 添加一条业绩' +
+              '</p>' +
+            '</div>'
+          );
+        }
+
+        myNotice = new Swiper('.ora-user-customer-notice .swiper-container', {
+          autoplay  : 3000,
+          direction : 'vertical',
+          loop      : true
+        })
+      }
+    })
+  };
+  // End : renderNotice()
+
   // Start : onClick()
   // des   : 点击事件处理程序，所有点击事件在此处管理
   //
@@ -177,8 +214,8 @@ var customer = (function () {
     configMap.user_info = user_info;
     setJqueryMap();
     getCustomerListData('customer/zhuguan', user_info);
-    // getCustomerListData('../../json/customerFile.json', user_info);
     onClick();
+    renderNotice();
   };
   // End : initModule()
 

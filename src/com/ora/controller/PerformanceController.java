@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -92,5 +93,22 @@ public class PerformanceController {
 			}
 		}
 		return performances2;
+	}
+
+	//查询公告业绩(当天)
+	@RequestMapping("/selectPerformanceByDay")
+	@ResponseBody
+	public List<Performance> selectPerformanceByDay() throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm:ss");
+		Date date = new Date();
+		String ptime = sdf.format(date);
+		List<Performance> performances = performanceService.selectPerformanceByDay(ptime);
+		for(Performance performance : performances){
+			Date date1 = sdf1.parse(performance.getPtime());
+			performance.setPtime(sdf2.format(date1));
+		}
+		return performances;
 	}
 }

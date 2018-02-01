@@ -179,10 +179,11 @@ public class PerformanceCopyController {
 	// 查询个人月份的每日业绩
 	@RequestMapping("/selectMyDayPerformance")
 	@ResponseBody
-	public List<List> selectMyDayPerformance(HttpSession session, String date) throws ParseException {
+	public List<List> selectMyDayPerformance(HttpSession session, @RequestBody Performance performance3) throws ParseException {
 		User user = (User) session.getAttribute("USER_SESSION");
 		Integer user_id = user.getUid();
 		List<Double> realitys = new ArrayList<Double>();
+		String date = performance3.getPtime();
 		Integer i = 0;
 		List<Integer> updateCusts = new ArrayList<Integer>();
 		Double reality = 0.0;

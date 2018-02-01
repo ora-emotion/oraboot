@@ -167,8 +167,8 @@
         VALUES (#{uid},#{uname},#{position},#{department_id},#{plan},#{reality},#{rate},#{updatecusts},#{date});
     </insert>
     <!-- 清空业绩 -->
-    <update id="updateUserPerformance" parameterType="user">
-        update user set plan = 0,updatecusts = 0,reality = 0 WHERE uid = #{uid}
+    <update id="updateUserPerformancePlan" parameterType="Integer">
+        update user set plan = 0 WHERE uid = #{uid}
     </update>
     <!-- 根据职级查询超级管理员的姓名 -->
     <select id="findSuperUname" resultType="String">

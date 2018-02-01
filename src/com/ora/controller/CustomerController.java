@@ -102,7 +102,6 @@ public class CustomerController {
 		} else {
 			return false;
 		}
-
 	}
 
 	// 添加
@@ -182,19 +181,23 @@ public class CustomerController {
 	@RequestMapping("/customer/update")
 	@ResponseBody
 	public Boolean updateCustomer(@RequestBody Customer customer, Model model, HttpSession session) throws ParseException {
+		//取到缓存中当前登录人的信息
 		User user = (User) session.getAttribute("USER_SESSION");
 		String uname = user.getUname();
+		//将当前登录人的姓名set为该用户的 “修改人（updateUser）” 字段中
 		customer.setUpdateUser(uname);
 		Integer position = user.getPosition();
-		Integer cid = customer.getCid();
 
-		Integer cnumber = customer.getCnumber();
-		Customer customer1 = customerService.findCnumberByCnumber(cnumber);
+		//用于下面验证用户编号是否存在
+		Customer customer1 = customerService.findCnumberByCnumber(customer.getCnumber());
 		String uname1 = customer.getUname();
+		//用于下面验证导师姓名是否存在
 		User user2 = customerService.findUserByUname(uname1);
 
-		// 修改之前的客户信息
-		Customer customer2 = customerService.selectCustomerByCid(cid);
+		// 根据传进来的Cid查询数据库修改之前的客户信息
+		Customer customer2 = customerService.selectCustomerByCid(customer.getCid());
+
+		// 判断如果传进来和数据库都是正在服务，剩余时间是否大于0 否 ————>将服务状态修改为 “ 服务已过期 ”
 		if(customer.getState().equals("正在服务")&&customer2.getState().equals("正在服务")){
 			long sydata = getSydate(customer.getSerdata(), customer.getBmtime());
 			if(sydata <= 0){
@@ -202,7 +205,7 @@ public class CustomerController {
 			}
 		}
 
-		// 冻结服务  改为   停止服务或已过期
+		// 冻结服务  改为   停止服务 或 服务已过期
 		if(customer.getState().equals("停止服务")||customer.getState().equals("服务已过期")){
 			if(customer2.getState().equals("冻结服务")){
 				customer.setFreeze(customer2.getFreeze());
@@ -219,6 +222,7 @@ public class CustomerController {
 			}
 		}
 
+		//停止服务改为正在服务   ------> （恢复服务）
 		if(customer2.getState().equals("停止服务")||customer2.getState().equals("服务已过期")){
 			if(customer.getState().equals("正在服务")){
 
@@ -237,18 +241,19 @@ public class CustomerController {
 				}else{
 					customer.setSydata(serdate - ((customer.getUnfreeze().getTime() - bmdate.getTime())/(24*60*60*1000)));
 				}
-
 			}
 		}
 
-		if(customer.getState().equals("服务已过期")&&customer2.getState().equals("服务已过期")){
+		//判断服务是否真的已过期，如果还有剩余时间，将状态改为正在服务
+		if(customer2.getState().equals("服务已过期")&&customer.getState().equals("服务已过期")){
 			long sydata = getSydate(customer.getSerdata(), customer.getBmtime());
 			if(sydata >=0){
 				customer.setState("正在服务");
 			}
 		}
 
-		if (customer.getState().equals("冻结服务") && customer2.getState().equals("正在服务")) {
+		//从正在服务改为冻结服务 ------>（冻结服务）
+		if (customer2.getState().equals("正在服务")&&customer.getState().equals("冻结服务")){
 			// 修改冻结时间
 			customer.setFreeze(new Date());
 			long sydata = getSydate(customer.getSerdata(), customer.getBmtime());
@@ -260,25 +265,29 @@ public class CustomerController {
 			}
 		}
 
-		if (customer2.getState().equals("冻结服务") && customer.getState().equals("正在服务")) {
+		//冻结服务改为正在服务   ------>  （解冻服务）
+ 		if (customer2.getState().equals("冻结服务") && customer.getState().equals("正在服务")) {
 			// 修改解冻时间
 			customer.setUnfreeze(new Date());
 			customer.setSydata(customer2.getSydata());
 		}
 
+		//修改服务状态为停止服务时，将剩余时间和解冻时间设为0和null -----> (停止服务)
 		if (customer.getState().equals("停止服务") || customer.getState().equals("服务已过期")) {
 			customer.setSydata(0);
 			customer.setUnfreeze(null);
 		}
 
-
 		if (customer1 != null&&!customer1.getCid().equals(customer.getCid())) {
+			//判断cnumber是否存在
 			model.addAttribute("msg", "用户编号已存在");
 			return false;
 		} else if (user2 == null) {
+			//判断导师姓名是否存在
 			model.addAttribute("msg", "导师姓名不存在");
 			return false;
 		} else {
+			//职级为主管以上的   所有用户都可以修改
 			if (position > 2) {
 				int rows1 = customerService.updateCustomer(customer);
 				if (rows1 > 0) {
@@ -289,11 +298,13 @@ public class CustomerController {
 					return false;
 				}
 			} else {
+				//主管（含）一下的只能修改自己或者属于自己的员工的用户
 				List<String> unames = customerService.findUnameBySupperior(uname);
 				unames.add(uname);
 				List<Customer> customers = customerService.selectCustomerByname(unames);
 				for (Customer customer3 : customers) {
-					if (cnumber.equals(customer3.getCnumber()) || cnumber == customer3.getCnumber()) {
+					//循环遍历自己的所有用户
+					if (customer.getCnumber().equals(customer3.getCnumber()) || customer.getCnumber() == customer3.getCnumber()) {
 						int rows = customerService.updateCustomer(customer);
 						if (rows > 0) {
 							model.addAttribute("msg", "修改用户信息成功");
@@ -312,22 +323,21 @@ public class CustomerController {
 	// 分页查询
 	@RequestMapping("/customer/paging")
 	@ResponseBody
-	public void findCustomerPaging(Integer pagination, HttpSession session) {
-		User user = (User) session.getAttribute("USER_SESSION");
-		String uname = user.getUname();
-		List<String> unames = customerService.findUnameBySupperior(uname);
-		unames.add(uname);
-		int rows = customerService.selectCustomerCount(unames);
+	public List<Customer> findCustomerPaging(Integer pagination) {
+		int rows = 0 ;
+		List<Customer> customers1 = customerService.findAllCustomer();
+		for(Customer customer2 : customers1){
+			rows +=1;
+		}
 		int nops = rows % 10 > 0 ? rows / 10 + 1 : rows / 10;
 		int nop = 0;
 		if (pagination <= nops) {
-			nop = pagination * 10;
+			nop = (pagination-1) * 10;
 		} else {
 			nop = nops * 10;
 		}
 		List<Customer> customers = customerService.selectCustomerLimit(nop);
-		// 未完待续
-
+		return customers;
 	}
 
 }

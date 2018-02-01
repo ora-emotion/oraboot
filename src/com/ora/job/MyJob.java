@@ -66,18 +66,16 @@ public class MyJob {
 				i++;
 			}
 		}
-		System.out.println("成功删除了 "+i+" 条业绩");
-	}
+		System.err.println("成功删除了 "+i+" 条业绩");
 
-	//清空数据
-	public void updateUserPerformance(){
+
 		System.out.println("开始清空。。。");
 		List<User> users = userService.selectAllUser();
 		if(users!=null&& users.size()!=0){
 			for(User user : users){
-				Integer rows = userService.updateUserPerformance(user);
+				Integer rows = userService.updateUserPerformancePlan(user.getUid());
 				if(rows >0){
-					System.out.println("清空  "+user.getUname()+" 数据成功");
+					System.err.print("清空  "+user.getUname()+" 数据成功 \t");
 				}else{
 					System.out.println("清空失败");
 				}

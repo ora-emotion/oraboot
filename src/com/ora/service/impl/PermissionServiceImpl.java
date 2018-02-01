@@ -34,4 +34,5 @@ public class PermissionServiceImpl implements PermissionService {
     public Permission selectPermissionById(Integer id) {
         return permissionDao.selectPermissionById(id);
     }
+
 }

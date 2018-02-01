@@ -24,6 +24,7 @@
     <script src="js/plugin/pagination.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/plugin/modal.js"      type="text/javascript" charset="utf-8"></script>
     <script src="js/util.js"              type="text/javascript" charset="utf-8"></script>
+    <script src="js/management/oa.js"              type="text/javascript" charset="utf-8"></script>
 
     <!-- import our javascript -->
     <script src="js/management/header.js"      type="text/javascript" charset="utf-8"></script>
@@ -40,23 +41,12 @@
 
     <!-- Start : 职位 -->
     <div class="ora-header-position">
-      <!--
-        接收职位 0 1 2 3 4
-        0 实习导师
-        1 导师
-        2 主管
-        3 总监
-        4 超级管理员
-      -->
       <span class="active">总监</span>
     </div>
     <!-- End : 职位 -->
 
     <!-- Start : 上级领导 -->
     <div class="ora-header-superior">
-      <!--
-          <span class="active">上级 : ${USER_SESSION.supperior}</span>
-          -->
       <span class="active">上级 : 花哥</span>
     </div>
     <!-- End : 上级领导 -->
@@ -382,6 +372,11 @@
       $('.ora-header-superior span').text('上级 : ' + superior);
     }
 
+    oa.initModule({
+      $header              : $('.ora-header'),
+      $nav                 : $('.ora-nav'),
+    }, { user_position : position });
+
     // 加载左侧菜单
     nav.initModule($('#ora-nav'), {
       position : position,
@@ -390,7 +385,7 @@
 
     // 引入当前文件对应的 js 模块
     chartSelf.initModule( $('body'), {
-
+      user_position : position
     });
   </script>
 </body>

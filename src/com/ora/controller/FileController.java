@@ -162,22 +162,38 @@ public class FileController {
     //查询用户文件
     @RequestMapping("/findFile")
     @ResponseBody
-    public List<Upfile> findFiles (@RequestBody Customer customer, HttpSession session){
-        Integer cust_cnumber = 1328;
+
+    //修改版
+//    public List<Upfile> findFiles (@RequestBody Customer customer, HttpSession session){
+//        Integer cust_cnumber = customer.getCnumber();
+//        System.out.println("cust_cnumber  =  "+cust_cnumber);
+//        User user = (User) session.getAttribute("USER_SESSION");
+//        String uname = user.getUname();
+//        Upfile upfile = new Upfile(0,"没有文件",uname,"0","0000-00-00",0);
+//        List<Upfile> upfiles = new ArrayList<Upfile>();
+//        upfiles.add(upfile);
+//        if (cust_cnumber != 0){
+//            List<Upfile> files = fileService.findFile(cust_cnumber);
+//            for(Upfile upfile1 : files){
+//                System.out.println(upfile1);
+//            }
+//            return files;
+//        }else{
+//            return upfiles;
+//        }
+//    }
+
+    //原版
+    public Upfile findFile (@RequestBody Customer customer, HttpSession session){
+        Integer file_id = customer.getFile_id();
         User user = (User) session.getAttribute("USER_SESSION");
         String uname = user.getUname();
         Upfile upfile = new Upfile(0,"没有文件",uname,"0","0000-00-00",0);
-        List<Upfile> upfiles = new ArrayList<Upfile>();
-        upfiles.add(upfile);
-        if (cust_cnumber != 0){
-            List<Upfile> files = fileService.findFile(cust_cnumber);
-            for(Upfile upfile1 : files){
-                System.out.println(upfile1);
-            }
-            return files;
+        if (file_id != 0){
+            Upfile file = fileService.findFileByFid(file_id);
+            return file;
         }else{
-            return upfiles;
+            return upfile;
         }
-
     }
 }

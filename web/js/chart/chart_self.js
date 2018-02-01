@@ -94,7 +94,7 @@ var chartSelf = (function () {
     $('.chart_nav span').remove();
     $('.chart_nav').append('<span class="chart_nav_item text-center chart_nav_item_active" data-month="0">总图表</span>')
 
-    for (i = 1; i < data.length + 1; i++) {
+    for (i = 1; i < data[0].length + 1; i++) {
       $('.chart_nav').append(
         '<span class="chart_nav_item text-center" data-month=' + i + '>' +
           i + '月' +
@@ -150,15 +150,15 @@ var chartSelf = (function () {
           type : 'value',
           name : '升级金额(元)',
           min  : 0,
-          max  : 500000,
-          interval : 50000
+          max  : 100000,
+          interval : 10000
         },
         {
           type : 'value',
           name : '升级次数(次)',
           min  : 0,
-          max  : 100,
-          interval : 10
+          max  : 50,
+          interval : 5
         }
       ],
       dataZoom: [

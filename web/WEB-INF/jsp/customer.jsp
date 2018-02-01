@@ -16,6 +16,7 @@
     <!-- import third-party javascript -->
     <script src="js/jq/jquery-3.2.1.js"            charset="utf-8"></script>
     <script src="js/jq/jquery.uriAnchor.js"        charset="utf-8"></script>
+    <script src="js/swiper/swiper.min.js"          charset="utf-8"></script>
     <script src="js/plugin/pagination.js"          charset="utf-8"></script>
     <script src="js/plugin/modal.js"               charset="utf-8"></script>
     <script src="js/util.js"                       charset="utf-8"></script>
@@ -229,6 +230,14 @@
           </div>
           <!-- End : 搜索模块 -->
 
+          <!-- Start : 公告栏 -->
+          <div class="ora-user-customer-notice">
+            <div class="swiper-container">
+              <div class="swiper-wrapper"></div>
+            </div>
+          </div>
+          <!-- End : 公告栏 -->
+
           <!-- Start : 添加模块 -->
           <div class="ora-user-customer-add">
             <button class="ora-user-customer-add-button" type="button">
@@ -241,33 +250,10 @@
 
         <!-- Start : 客户列表 - 分页器 -->
         <div class="ora-user-customer-pagination">
-          <!-- Start : list tile -->
-          <!--
-          <div class="ora-user-customer-pagination-title">
-            <table>
-              <tbody>
-                <tr>
-                  <th>ID</th>
-                  ...
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          -->
-          <!-- End : list tile -->
-
           <!-- Start : pagination - customers list -->
           <div class="pagination" id="pagination">
             <!-- Start : 分页器主要内容区域 -->
-            <div class="pagination-content">
-              <!--
-              Start : 第一页内容
-              <div class="pagination-content-page active">
-                <p style="font-size:50px;" class="text-center">第一页</p>
-              </div>
-              End : 第一页内容
-              -->
-            </div>
+            <div class="pagination-content"></div>
             <!-- End : 分页器主要内容区域 -->
 
             <!-- Start : 分页器按钮 -->
@@ -276,11 +262,7 @@
               <span class="pagination-control-prev pointer margin-px text-center">上页</span>
 
               <!-- Start : 分页器页码 -->
-              <div class="pagination-controllers">
-                <!--
-                <span class="pagination-control-controllers-num pointer margin-px text-center active">1</span>
-                -->
-              </div>
+              <div class="pagination-controllers"></div>
               <!-- End : 分页器页码 -->
 
               <span class="pagination-control-next pointer margin-px text-center">下页</span>

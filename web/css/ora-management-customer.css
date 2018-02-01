@@ -72,6 +72,29 @@
 }
 /* End : search area includes input box and submit button */
 
+/* Start : 公告栏 */
+.ora-user-customer-notice {
+  position: absolute;
+  top: 0;
+  left: 850px;
+  width: 400px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.ora-user-customer-notice .swiper-container {
+  height: 100%;
+}
+.ora-user-customer-notice p {
+  width: 100%;
+  height: 100%;
+  line-height: 50px;
+}
+/* End : 公告栏 */
+
 /* Start : button of add customers */
 .ora-user-customer-add {
   width: 147px;
