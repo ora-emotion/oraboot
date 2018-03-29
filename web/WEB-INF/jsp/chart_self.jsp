@@ -126,7 +126,7 @@
 
     <!-- Start : 业绩图表 -->
     <div class="ora-nav-chart ora-nav-item">
-      <div class="ora-nav-chart-title ora-nav-title" style="background: #fca12f;" title="业绩图表">
+      <div class="ora-nav-chart-title ora-nav-title"  title="业绩图表">
         <span class="ora-nav-chart-title-avator"></span>
         <span class="ora-nav-chart-title-text">业绩图表</span>
       </div>
@@ -138,10 +138,10 @@
   <!-- Start : 图表主体 -->
   <div class="chart-wrap">
     <div class="chart_nav">
-      <span class="chart_nav_item text-center chart_nav_item_active">总图表</span>
-      <span class="chart_nav_item text-center">1 月</span>
-      <span class="chart_nav_item text-center">2 月</span>
-      <span class="chart_nav_item text-center">3 月</span>
+      <span class="chart_nav_item text-center chart_nav_item_active" data-month="0">总图表</span>
+      <span class="chart_nav_item text-center" data-month="1">1 月</span>
+      <span class="chart_nav_item text-center" data-month="2">2 月</span>
+      <span class="chart_nav_item text-center" data-month="3">3 月</span>
     </div>
     <div class="chart"></div>
   </div>
@@ -394,7 +394,9 @@
     });
 
     // 引入当前文件对应的 js 模块
-    chartSelf.initModule( $('body') );
+    chartSelf.initModule( $('body'), {
+
+    });
   </script>
 </body>
 </html>
