@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50720
+Source Server         : mysql
+Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : oraboot
 
 Target Server Type    : MYSQL
-Target Server Version : 50720
+Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-03-15 14:44:22
+Date: 2018-03-29 17:00:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for customer
+-- Table structure for `customer`
 -- ----------------------------
 DROP TABLE IF EXISTS `customer`;
 CREATE TABLE `customer` (
@@ -359,7 +359,7 @@ INSERT INTO `customer` VALUES ('305', '1054', '枫叶', null, '男', '2017-12-11
 INSERT INTO `customer` VALUES ('306', '1237', '空中玉蝴蝶', null, '男', '2018-01-04 00:00:00', '60', '0', '0', '孙康', '姚嘉', '正在服务', '男，八月闹离婚，妻子曾起诉离婚，结婚八年，因女方于男性朋友出去玩等类似事件吵架。男爱乱花钱，之前因孩子确诊“孤独症”而两人感情不和，男自行挽回无效，现妻子抵触情绪明显，联系方式基本无效。', '0', '规格一', '1', '完成已给', '全款', '', '婚姻挽回', null, null, '0', '孙康', '孙康');
 
 -- ----------------------------
--- Table structure for department
+-- Table structure for `department`
 -- ----------------------------
 DROP TABLE IF EXISTS `department`;
 CREATE TABLE `department` (
@@ -374,11 +374,11 @@ CREATE TABLE `department` (
 -- ----------------------------
 -- Records of department
 -- ----------------------------
-INSERT INTO `department` VALUES ('1', '导师一部', '91000', '61400', '15');
-INSERT INTO `department` VALUES ('2', '导师二部', '91000', '47400', '8');
+INSERT INTO `department` VALUES ('1', '导师一部', '100000000', '10000000', '0');
+INSERT INTO `department` VALUES ('2', '导师二部', '100000000', '10000000', '0');
 
 -- ----------------------------
--- Table structure for file
+-- Table structure for `file`
 -- ----------------------------
 DROP TABLE IF EXISTS `file`;
 CREATE TABLE `file` (
@@ -387,15 +387,17 @@ CREATE TABLE `file` (
   `uname` varchar(255) NOT NULL,
   `cust_cnumber` varchar(50) NOT NULL,
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `downNum` int(10) NOT NULL DEFAULT '0',
   PRIMARY KEY (`fid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of file
 -- ----------------------------
+INSERT INTO `file` VALUES ('1', '技术部姜朝文工作计划表(1）.xlsx', '超级管理员', '1328', '2018-01-29 13:51:14', '2');
 
 -- ----------------------------
--- Table structure for history
+-- Table structure for `history`
 -- ----------------------------
 DROP TABLE IF EXISTS `history`;
 CREATE TABLE `history` (
@@ -410,7 +412,7 @@ CREATE TABLE `history` (
   `updatecusts` int(10) DEFAULT NULL,
   `hdate` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`hid`)
-) ENGINE=InnoDB AUTO_INCREMENT=199 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=243 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of history
@@ -613,9 +615,53 @@ INSERT INTO `history` VALUES ('195', '22', '刘丽娟', '0', '1', '0', '0', '0',
 INSERT INTO `history` VALUES ('196', '21', '邱新科', '0', '2', '0', '0', '0', '0', '2018-02');
 INSERT INTO `history` VALUES ('197', '20', '刘佳', '0', '1', '0', '0', '0', '0', '2018-02');
 INSERT INTO `history` VALUES ('198', '18', '客服', '5', '0', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('199', '1', '超级管理员', '4', '0', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('200', '2', '胡长青', '3', '0', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('201', '5', '周佩佩', '2', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('202', '3', '宋鑫', '2', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('203', '4', '李媛媛', '1', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('204', '7', '张顾凡', '1', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('205', '19', '吕昊', '1', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('206', '17', '王辉', '1', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('207', '12', '周佳', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('208', '16', '董顺奇', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('209', '8', '邵冉', '0', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('210', '13', '张月亭', '0', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('211', '14', '吕慧', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('212', '15', '郭会芹', '0', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('213', '6', '唐齐', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('214', '9', '孙康', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('215', '10', '徐洋', '0', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('216', '11', '辛春来', '0', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('217', '22', '刘丽娟', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('218', '21', '邱新科', '0', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('219', '20', '刘佳', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('220', '18', '客服', '5', '0', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('221', '1', '超级管理员', '4', '0', '0', '1111', '0', '1', '2018-02');
+INSERT INTO `history` VALUES ('222', '2', '胡长青', '3', '0', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('223', '5', '周佩佩', '2', '1', '100000000', '10000000', '10', '0', '2018-02');
+INSERT INTO `history` VALUES ('224', '3', '宋鑫', '2', '2', '100000000', '10000000', '10', '0', '2018-02');
+INSERT INTO `history` VALUES ('225', '4', '李媛媛', '1', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('226', '7', '张顾凡', '1', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('227', '19', '吕昊', '1', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('228', '17', '王辉', '1', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('229', '12', '周佳', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('230', '16', '董顺奇', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('231', '8', '邵冉', '0', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('232', '13', '张月亭', '0', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('233', '14', '吕慧', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('234', '15', '郭会芹', '0', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('235', '6', '唐齐', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('236', '9', '孙康', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('237', '10', '徐洋', '0', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('238', '11', '辛春来', '0', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('239', '22', '刘丽娟', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('240', '21', '邱新科', '0', '2', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('241', '20', '刘佳', '0', '1', '0', '0', '0', '0', '2018-02');
+INSERT INTO `history` VALUES ('242', '18', '客服', '5', '0', '0', '0', '0', '0', '2018-02');
 
 -- ----------------------------
--- Table structure for performance
+-- Table structure for `performance`
 -- ----------------------------
 DROP TABLE IF EXISTS `performance`;
 CREATE TABLE `performance` (
@@ -626,15 +672,17 @@ CREATE TABLE `performance` (
   `overtime` int(10) DEFAULT NULL,
   `updateRemark` varchar(10000) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  `user_department` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of performance
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for perfor_copy
+-- Table structure for `perfor_copy`
 -- ----------------------------
 DROP TABLE IF EXISTS `perfor_copy`;
 CREATE TABLE `perfor_copy` (
@@ -648,36 +696,37 @@ CREATE TABLE `perfor_copy` (
   `user_name` varchar(255) DEFAULT NULL,
   `user_department` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of perfor_copy
 -- ----------------------------
-INSERT INTO `perfor_copy` VALUES ('45', '1144', '2000', '2018-01-05', '35', '高级聊天课程', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('46', '959', '2000', '2018-01-05', '60', '高价专项课程', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('47', '1285', '2000', '2018-01-05', '0', '', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('48', '1131', '2000', '2018-01-05', '60', '升级导师专项服务', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('49', '1289', '2000', '2018-02-02', '0', '升级高级聊天课程', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('50', '1256', '2000', '2018-02-04', '90', '专项课程8800，先付4400元，2月底之前补齐余款。', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('51', '252', '2000', '2018-02-04', '100', '升级规格三课程服务5800元，先付3000元，二月底之前补齐2800元。', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('52', '1198', '2000', '2018-02-05', '100', '一次性方案学员，升级规格二。维护关系。', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('53', '1233', '2000', '2018-02-05', '30', '升级高级聊天课程，狙击。', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('54', '1169', '2000', '2018-02-08', '40', '学员是一个狙击的，两个人在一个服装厂上班，女方比男方大，女方结过婚没有办婚礼，但是有一个孩子，可能女方过完年就回来了。二个人在单位是经常能见到免得，微信没有拉黑', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('55', '1009', '2000', '2018-02-08', '60', '升级导师专项课程补尾款3900元。', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('56', '734', '2000', '2018-02-08', '80', '三月到期', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('57', '1093', '2000', '2018-02-08', '60', '升级导师专项课程补尾款3800元。', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('58', '720', '2000', '2018-02-11', '60', '续费规格一课程3000元。', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('59', '421', '2000', '2018-02-11', '0', '分期1月15日前补齐2000', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('60', '1119', '2000', '2018-02-11', '30', '挽回变狙击', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('61', '1145', '2000', '2018-02-12', '60', '全款', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('62', '1054', '2000', '2018-02-19', '90', '心理学习', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('63', '1273', '2000', '2018-02-19', '150', '', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('64', '1328', '2000', '2018-02-19', '0', '', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('65', '1127', '2000', '2018-02-24', '148', '9800分三期（1月14前3800+2月14前3000+3月14前3000）', '1', '超级管理员', '1');
-INSERT INTO `perfor_copy` VALUES ('66', '1209', '2000', '2018-02-27', '0', '升级导师高级聊天课程2000元，月底前补款1000元。', '1', '超级管理员', '1');
+INSERT INTO `perfor_copy` VALUES ('45', '1144', '2000', '2018-01-05', '35', '高级聊天课程', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('46', '959', '2000', '2018-01-05', '60', '高价专项课程', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('47', '1285', '2000', '2018-01-05', '0', '', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('48', '1131', '2000', '2018-01-05', '60', '升级导师专项服务', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('49', '1289', '2000', '2018-02-02', '0', '升级高级聊天课程', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('50', '1256', '2000', '2018-02-04', '90', '专项课程8800，先付4400元，2月底之前补齐余款。', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('51', '252', '2000', '2018-02-04', '100', '升级规格三课程服务5800元，先付3000元，二月底之前补齐2800元。', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('52', '1198', '2000', '2018-02-05', '100', '一次性方案学员，升级规格二。维护关系。', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('53', '1233', '2000', '2018-02-05', '30', '升级高级聊天课程，狙击。', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('54', '1169', '2000', '2018-02-08', '40', '学员是一个狙击的，两个人在一个服装厂上班，女方比男方大，女方结过婚没有办婚礼，但是有一个孩子，可能女方过完年就回来了。二个人在单位是经常能见到免得，微信没有拉黑', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('55', '1009', '2000', '2018-02-08', '60', '升级导师专项课程补尾款3900元。', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('56', '734', '2000', '2018-02-08', '80', '三月到期', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('57', '1093', '2000', '2018-02-08', '60', '升级导师专项课程补尾款3800元。', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('58', '720', '2000', '2018-02-11', '60', '续费规格一课程3000元。', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('59', '421', '2000', '2018-02-11', '0', '分期1月15日前补齐2000', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('60', '1119', '2000', '2018-02-11', '30', '挽回变狙击', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('61', '1145', '2000', '2018-02-12', '60', '全款', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('62', '1054', '2000', '2018-02-19', '90', '心理学习', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('63', '1273', '2000', '2018-02-19', '150', '', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('64', '1328', '2000', '2018-02-19', '0', '', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('65', '1127', '2000', '2018-02-24', '148', '9800分三期（1月14前3800+2月14前3000+3月14前3000）', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('66', '1209', '2000', '2018-02-27', '0', '升级导师高级聊天课程2000元，月底前补款1000元。', '1', '超级管理员', '0');
+INSERT INTO `perfor_copy` VALUES ('67', '1302', '1111', null, '1', '1', '1', '超级管理员', '0');
 
 -- ----------------------------
--- Table structure for permission
+-- Table structure for `permission`
 -- ----------------------------
 DROP TABLE IF EXISTS `permission`;
 CREATE TABLE `permission` (
@@ -721,7 +770,7 @@ INSERT INTO `permission` VALUES ('21', '0', '0', '1', '0', '0', '0', '邱新科'
 INSERT INTO `permission` VALUES ('22', '0', '0', '1', '0', '0', '0', '刘丽娟', '0', '22');
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -758,11 +807,11 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '10000001', 'admin', '123', '超级管理员', '男', '1992/06/15', '13963235815', '123', '370225199206155249', '0', '2017-01-12 00:00:00', '2018-01-23 11:52:00', '2017-01-12 00:00:00', '4', '', '1', null, '1', '橘子情感', '山东青岛', '英语六级', '0', '0', '0', '0', '0');
+INSERT INTO `user` VALUES ('1', '10000001', 'admin', '123', '超级管理员', '男', '1992/06/15', '13963235815', '123', '370225199206155249', '0', '2017-01-12 00:00:00', '2018-03-29 13:28:44', '2017-01-12 00:00:00', '4', '', '1', null, '1', '橘子情感', '山东青岛', '英语六级', '0', '0', '0', '0', '0');
 INSERT INTO `user` VALUES ('2', '20170008', 'qingen', 'qing11234', '胡长青', '女', '1995/11/23', '18363994524', '', '370921199511230621', '0', '2017-12-29 15:23:30', '2018-01-16 16:55:41', null, '3', '超级管理员', '0', null, '3', '孔梦丹', '泰安', '婚姻家庭咨询师', '0', '0', '0', '0', '0');
-INSERT INTO `user` VALUES ('3', '20170019', 'songxin', 'sx900501', '宋鑫', '女', '1990/05/01', '18561365549', '', '370281199005016727', '0', '2017-12-29 16:09:30', '2018-01-11 10:00:31', null, '2', '胡长青', '0', null, '1', '宋鑫', null, null, '0', '0', '0', '2', '0');
+INSERT INTO `user` VALUES ('3', '20170019', 'songxin', 'sx900501', '宋鑫', '女', '1990/05/01', '18561365549', '', '370281199005016727', '0', '2017-12-29 16:09:30', '2018-03-29 13:28:44', null, '2', '胡长青', '0', null, '1', '宋鑫', null, null, '0', '0', '0', '2', '0');
 INSERT INTO `user` VALUES ('4', '20170027', 'baby07', 'baby0700', '李媛媛', '女', '1995/11/5', '17753222913', '', '230302199511055023', '0', '2017-12-29 16:10:15', '2018-02-08 13:16:06', null, '1', '周佩佩', '0', null, '3', '端木德文', null, null, '0', '0', '0', '1', '0');
-INSERT INTO `user` VALUES ('5', '20170012', 'NIki94', 'zpp116626773', '周佩佩', '女', '1994/03/23', '13122101039', 'puafm010', '370282199403236027', '0', '2017-12-29 16:11:38', '2018-01-16 16:54:45', '2017-03-26 00:00:00', '2', '胡长青', '0', null, '1', '周佩佩', '山东青岛', '婚姻家庭咨询师', '0', '0', '0', '1', '0');
+INSERT INTO `user` VALUES ('5', '20170012', 'NIki94', 'zpp116626773', '周佩佩', '女', '1994/03/23', '13122101039', 'puafm010', '370282199403236027', '0', '2017-12-29 16:11:38', '2018-03-29 13:28:44', '2017-03-26 00:00:00', '2', '胡长青', '0', null, '1', '周佩佩', '山东青岛', '婚姻家庭咨询师', '0', '0', '0', '1', '0');
 INSERT INTO `user` VALUES ('6', '20170063', 'IDONZI', 'lucifert', '唐齐', '女', '1994/01/23', '18615121229', 'juzi001', '370323199401230022', '0', '2017-12-29 16:11:54', '2018-04-19 11:32:10', '2017-12-04 00:00:00', '0', '周佩佩', '0', null, '3', '徐文慧', '山东淄博', null, '0', '0', '0', '1', '0');
 INSERT INTO `user` VALUES ('7', '20170028', 'callingfan', 'zhangqwe123', '张顾凡', '男', '1996/12/7', '17866632107', 'Yaopua', '370305199612070716', '0', '2017-12-29 16:14:51', '2018-04-19 11:32:10', null, '1', '宋鑫', '0', null, '1', '姚崇', null, null, '0', '0', '0', '2', '0');
 INSERT INTO `user` VALUES ('8', '20170053', 'mumian', '19801216', '邵冉', '女', '1980/12/16', '18669752979', '', '370203198012164126', '0', '2017-12-29 16:15:57', '2018-04-19 11:32:10', null, '0', '宋鑫', '0', null, '3', '李敏', null, null, '0', '0', '0', '2', '0');
@@ -782,7 +831,7 @@ INSERT INTO `user` VALUES ('21', '20170094', 'qxk133647', 'qxkill133647', '邱�
 INSERT INTO `user` VALUES ('22', '20170090', 'Muriel', 'llj215512', '刘丽娟', '女', '1992/03/04', '18653222495', '18653222495', '370682199203046423', '0', '2018-01-16 13:39:55', '2018-01-16 16:57:46', '2018-01-04 00:00:00', '0', '周佩佩', '0', '', '1', '妈妈', '山东烟台', '', '0', '0', '0', '1', '0');
 
 -- ----------------------------
--- Procedure structure for test_insert
+-- Procedure structure for `test_insert`
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `test_insert`;
 DELIMITER ;;
