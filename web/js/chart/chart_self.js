@@ -22,8 +22,8 @@ var chartSelf = (function () {
     stateMap  = { $container : null },
     jqueryMap = {},
 
-    setJqueryMap, getData, getMonthData, renderChart, renderDayChart,
-    onClick,      initModule
+    setJqueryMap,   getData, getMonthData, createMonthMenu, renderChart,
+    renderDayChart, onClick, initModule
   ;
   // ----------------------- END MODULE SCOPE VARIABLES ----------------------
 
@@ -41,9 +41,11 @@ var chartSelf = (function () {
         if (data.length === 0) { alert('暂无数据'); }
         $('.chart-wrap .chart').remove();
         $('.chart-wrap').append('<div class="chart"></div>');
+
         // data [[], [], []] - 计划 实际 完成率
         if (fn_map.hasOwnProperty('suc')) {
           fn_map.suc(data);
+          fn_map.createMonthMenu(data);  // 自动生成月份选择菜单
         }
       },
       error : function (error) {
@@ -84,6 +86,23 @@ var chartSelf = (function () {
     jqueryMap = { $container : $container };
   };
   // End DOM method /setJqueryMap/
+
+  // Begin DOM method /createMonthMenu/
+  createMonthMenu = function (data) {
+    var i;
+
+    $('.chart_nav span').remove();
+    $('.chart_nav').append('<span class="chart_nav_item text-center chart_nav_item_active" data-month="0">总图表</span>')
+
+    for (i = 1; i < data.length + 1; i++) {
+      $('.chart_nav').append(
+        '<span class="chart_nav_item text-center" data-month=' + i + '>' +
+          i + '月' +
+        '</span>'
+      );
+    }
+  };
+  // Begin DOM method /createMonthMenu/
 
   // Begin DOM method /renderChart/
   renderChart = function (data) {
@@ -284,7 +303,10 @@ var chartSelf = (function () {
           $('.chart_nav_item').removeClass('chart_nav_item_active');
           $('.chart_nav_item:nth-child(1)').addClass('chart_nav_item_active');
           $('.chart-wrap .chart').remove();
-          getData('selectMyMonthPerformance', { suc : renderChart });
+          getData('selectMyMonthPerformance', {
+            suc             : renderChart,
+            createMonthMenu : createMonthMenu
+          });
           break;
         case '1' :   // 1 月
           // 移除所有按钮的激活样式
@@ -451,7 +473,10 @@ var chartSelf = (function () {
     configMap.userinfo_map = userinfo_map;
     setJqueryMap();
 
-    getData('selectMyMonthPerformance', { suc : renderChart });
+    getData('selectMyMonthPerformance', {
+      suc             : renderChart,
+      createMonthMenu : createMonthMenu
+    });
     onClick();
   };
   // End public method /initModule/
