@@ -140,7 +140,6 @@ customer.modal = (function () {
           state         : jqueryMap.$update_box.find('.customer-info-content-group-state input').val(),
           remark        : jqueryMap.$update_box.find('.customer-info-content-group-remark textarea').val(),
           freeze        : jqueryMap.$update_box.find('.customer-info-content-group-state input').attr('data-pause_date')
-
         };
 
         $.ajax({
