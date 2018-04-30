@@ -22,8 +22,8 @@ var chartSelf = (function () {
     stateMap  = { $container : null },
     jqueryMap = {},
 
-    setJqueryMap,   getData, getMonthData, createMonthMenu, renderChart,
-    renderDayChart, onClick, initModule
+    setJqueryMap,   getData,   getMonthData, createMonthMenu, renderChart,
+    renderDayChart, toggleNav, onClick, initModule
   ;
   // ----------------------- END MODULE SCOPE VARIABLES ----------------------
 
@@ -150,15 +150,15 @@ var chartSelf = (function () {
           type : 'value',
           name : '升级金额(元)',
           min  : 0,
-          max  : 500000,
-          interval : 50000
+          max  : 100000,
+          interval : 10000
         },
         {
           type : 'value',
           name : '升级次数(次)',
           min  : 0,
-          max  : 100,
-          interval : 10
+          max  : 50,
+          interval : 5
         }
       ],
       dataZoom: [
@@ -291,6 +291,13 @@ var chartSelf = (function () {
     myChart.setOption(option);
   };
   // End DOM method /renderDayChart/
+
+  // Begin DOM method /toggleNav/
+  toggleNav = function () {
+    var user_position = configMap.userinfo_map.user_position;
+    console.log(user_position);
+  };
+  // End DOM method /toggleNav/
   // ----------------------------- END DOM METHODS ---------------------------
 
   // -------------------------- BEGIN EVENT HANDLERS -------------------------
@@ -478,6 +485,7 @@ var chartSelf = (function () {
       createMonthMenu : createMonthMenu
     });
     onClick();
+    toggleNav();
   };
   // End public method /initModule/
 

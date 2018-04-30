@@ -14,7 +14,7 @@
 /***************************** START DESCRIPTIONS *****************************/
 //
 // Beegin Time : 2017.12.27
-// Update Time : 2018.01.03
+// Update Time : 2018.01.30
 //
 /****************************** END DESCRIPTIONS ******************************/
 
@@ -79,7 +79,7 @@ var oa = (function () {
   CheckPosition = function () {
     // Start : CheckPosition.toggleNavTab()
     // des   : 通过检查当前登录人的职位, 决定是否显示菜单中的某个选项卡。
-    // args  : userinfo_map = { user_position : num(int } 当前登录人的职位。
+    // args  : userinfo_map = { user_position : num(int) } 当前登录人的职位。
     //
     this.toggleNavTab = function (userinfo_map) {
       var
@@ -97,22 +97,23 @@ var oa = (function () {
           $mentor.remove();       // 移除 导师管理 选项卡
           $permission.remove();   // 移除 权限管理 选项卡
           $performance.remove();  // 移除 业绩管理 选项卡
-          $chart.remove();        // 移除 业绩查看 选项卡
+          $chart.remove();        // 移除 业绩图表 选项卡
           break;
         case 1 :  // 导师
           $mentor.remove();       // 移除 导师管理 选项卡
           $permission.remove();   // 移除 权限管理 选项卡
           $performance.remove();  // 移除 业绩管理 选项卡
-          $chart.remove();        // 移除 业绩查看 选项卡
+          $chart.remove();        // 移除 业绩图表 选项卡
           break;
         case 2 :  // 主管
           $permission.remove();   // 移除 权限管理 选项卡
+          $chart.remove();        // 移除 业绩图表 选项卡
           break;
         case 5 :  // 客服
           $customer.remove();     // 移除 用户管理 选项卡
           $permission.remove();   // 移除 权限管理 选项卡
           $performance.remove();  // 移除 业绩管理 选项卡
-          $chart.remove();        // 移除 业绩查看 选项卡
+          $chart.remove();        // 移除 业绩图表 选项卡
         default :
           break;
       }
@@ -156,6 +157,9 @@ var oa = (function () {
       case 'toDC' :                                // 业绩查看 模块
         checkPosition.toggleNavTab(userinfo_map);
         break;
+      case 'toDCSelf' :                            // 个人业绩图表 模块
+        checkPosition.toggleNavTab(userinfo_map);
+        break;
       default :
         break;
     }
@@ -172,8 +176,6 @@ var oa = (function () {
     url = url[url.length - 1];
 
     if (url === 'login#!page=1') {
-      console.log('hahahah');
-      console.log(configMap.userinfo_map);
       switch (configMap.userinfo_map.user_position) {
         case 0 :  // 实习导师
           window.location.href = 'toCustomer';
