@@ -41,7 +41,7 @@ public class HistoryController {
         int i = Math.abs(month + result);//相差数，用来确定创建数组的长度
 
         //创建数组，保存需要的所有日期
-        String [] hdate = new String[i];
+        String[] hdate = new String[i];
 
         //循环输出日期
         Date d1 = sdf.parse(first);//定义起始日期
@@ -61,10 +61,10 @@ public class HistoryController {
     }
 
     //获取计划金额
-    static final Double getUplan(List<History> histories,String hdate){
+    static final Double getUplan(List<History> histories, String hdate) {
         Double uplan = 0.0;
-        for(History history : histories){
-            if(history.getHdate().equals(hdate)){
+        for (History history : histories) {
+            if (history.getHdate().equals(hdate)) {
                 uplan += history.getUplan();
 
             }
@@ -73,10 +73,10 @@ public class HistoryController {
     }
 
     //获取实际金额
-    static final Double getUreality(List<History> histories,String hdate){
+    static final Double getUreality(List<History> histories, String hdate) {
         Double ureality = 0.0;
-        for(History history : histories){
-            if(history.getHdate().equals(hdate)){
+        for (History history : histories) {
+            if (history.getHdate().equals(hdate)) {
                 ureality += history.getUreality();
             }
         }
@@ -91,17 +91,17 @@ public class HistoryController {
         List<Double> urealitys = new ArrayList<Double>();
         List<Double> urates = new ArrayList<Double>();
         String[] hdates = getDate();
-        for(String date : hdates){
-            Double uplan = getUplan(histories,date);
-            Double ureality = getUreality(histories,date);
-            Double rate = (Double)ureality/uplan;
+        for (String date : hdates) {
+            Double uplan = getUplan(histories, date);
+            Double ureality = getUreality(histories, date);
+            Double rate = (Double) ureality / uplan;
             Double rate1 = rate * 100;
             uplans.add(uplan);
             urealitys.add(ureality);
-            if(uplan!=0 && ureality!=0){
-                urate = Double.parseDouble(String.format("%.2f",rate1));
+            if (uplan != 0 && ureality != 0) {
+                urate = Double.parseDouble(String.format("%.2f", rate1));
                 urates.add(urate);
-            }else{
+            } else {
                 urates.add(0.0);
             }
         }
@@ -119,6 +119,7 @@ public class HistoryController {
         System.out.println(result);
         return result;
     }
+
     @RequestMapping("/findDepartmentHistory")
     @ResponseBody
     public List<List> findDepartmentHistory() throws ParseException {

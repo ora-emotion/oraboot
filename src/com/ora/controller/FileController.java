@@ -163,7 +163,8 @@ public class FileController {
     @RequestMapping("/findFile")
     @ResponseBody
     public List<Upfile> findFiles (@RequestBody Customer customer, HttpSession session){
-        Integer cust_cnumber = 1328;
+        Integer cust_cnumber = customer.getCnumber();
+        System.out.println("cust_cnumber  =  "+cust_cnumber);
         User user = (User) session.getAttribute("USER_SESSION");
         String uname = user.getUname();
         Upfile upfile = new Upfile(0,"没有文件",uname,"0","0000-00-00",0);
@@ -178,6 +179,5 @@ public class FileController {
         }else{
             return upfiles;
         }
-
     }
 }
